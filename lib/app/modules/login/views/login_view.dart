@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -5,6 +6,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/custom_button_auth.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_role_auth.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';
@@ -98,32 +100,39 @@ class LoginView extends GetView<LoginController> {
                 label: "Email",
                 hintText: "Masukkan email",
               ),
-              SizedBox(height: 15,),
+              SizedBox(height: 15),
               CustomTextFieldAuth(
                 controller: controller.passwordController,
                 label: "Kata Sandi",
                 hintText: "Masukkan kata sandi",
               ),
               SizedBox(height: 15.sp),
-              CustomButtonAuth(text: "Masuk", onPressed: (){}),
-              // RichText(
-              //       text: TextSpan(
-              //         text: 'Belum memiliki akun? ',
-              //         style: AppTextStyles.body3Regular.copyWith(
-              //           color: AppColors.neutral90
-              //         ),
-              //         children: [
-              //           TextSpan(
-              //             text: 'Daftar sekarang!',
-              //             style: TextStyle(
-              //               color: ,
-              //               decoration: TextDecoration.underline,
-              //             ),
-              //             recognizer: TapGestureRecognizer()
-              //               ..onTap = () {
-              //                 Get.toNamed(Routes.REGISTER);
-              //               },
-              //           ),
+              CustomButtonAuth(text: "Masuk", onPressed: () {}),
+              SizedBox(
+                height: 10.sp,
+              ),
+              RichText(
+                text: TextSpan(
+                  text: 'Belum memiliki akun? ',
+                  style: AppTextStyles.body3Regular.copyWith(
+                    color: AppColors.neutral90,
+                  ),
+                  children: [
+                    TextSpan(
+                      text: 'Daftar',
+                      style: AppTextStyles.body3Regular.copyWith(
+                        color: AppColors.primary90,
+                        decoration: TextDecoration.underline,
+                      ),
+                      recognizer:
+                          TapGestureRecognizer()
+                            ..onTap = () {
+                              Get.toNamed(Routes.REGISTER);
+                            },
+                    ),
+                  ],
+                ),
+              ),
             ],
           ),
         ),
