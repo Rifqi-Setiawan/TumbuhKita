@@ -1,0 +1,133 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:get/get.dart';
+import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
+import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/widgets/buttons/custom_button_auth.dart';
+import 'package:tumbuh_kita/app/widgets/cards/custom_role_auth.dart';
+import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';
+
+import '../controllers/login_controller.dart';
+
+class LoginView extends GetView<LoginController> {
+  const LoginView({super.key});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Color(0xffF4F0FF),
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 26, vertical: 30),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Masuk",
+                  style: AppTextStyles.heading5Bold.copyWith(
+                    color: AppColors.primary90,
+                  ),
+                ),
+              ),
+              SizedBox(height: 109),
+              Text(
+                "Masuk ke Akun Anda",
+                style: AppTextStyles.body1SemiBold.copyWith(
+                  color: AppColors.neutral90,
+                ),
+              ),
+              SizedBox(height: 15),
+              Text(
+                "Pilih peran dan masukan kredensial Anda \nuntuk melanjutkan",
+                textAlign: TextAlign.center,
+                style: AppTextStyles.caption1Regular.copyWith(
+                  color: AppColors.neutral70,
+                ),
+              ),
+              SizedBox(height: 30),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text(
+                  "Pilih Peran",
+                  style: AppTextStyles.body2Semibold.copyWith(
+                    color: AppColors.neutral90,
+                  ),
+                ),
+              ),
+              SizedBox(height: 3),
+              // Masukkan role cardnya dibawah
+              Container(
+                padding: EdgeInsets.all(11.sp),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF8F8F8),
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                child: Obx(
+                  () => Row(
+                    children: [
+                      CustomRoleAuth(
+                        role: 'Orang Tua',
+                        icon: Icons.favorite_border_outlined,
+                        isSelected:
+                            controller.selectedRole.value == 'Orang Tua',
+                        onTap: () => controller.selectRole('Orang Tua'),
+                      ),
+                      CustomRoleAuth(
+                        role: 'Posyandu',
+                        icon: FontAwesomeIcons.userGroup,
+                        isSelected: controller.selectedRole.value == 'Posyandu',
+                        onTap: () => controller.selectRole('Posyandu'),
+                      ),
+                      CustomRoleAuth(
+                        role: 'Kesehatan',
+                        icon: Icons.manage_accounts,
+                        isSelected:
+                            controller.selectedRole.value == 'Kesehatan',
+                        onTap: () => controller.selectRole('Kesehatan'),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              SizedBox(height: 15.sp),
+              CustomTextFieldAuth(
+                controller: controller.emailController,
+                label: "Email",
+                hintText: "Masukkan email",
+              ),
+              SizedBox(height: 15,),
+              CustomTextFieldAuth(
+                controller: controller.passwordController,
+                label: "Kata Sandi",
+                hintText: "Masukkan kata sandi",
+              ),
+              SizedBox(height: 15.sp),
+              CustomButtonAuth(text: "Masuk", onPressed: (){}),
+              // RichText(
+              //       text: TextSpan(
+              //         text: 'Belum memiliki akun? ',
+              //         style: AppTextStyles.body3Regular.copyWith(
+              //           color: AppColors.neutral90
+              //         ),
+              //         children: [
+              //           TextSpan(
+              //             text: 'Daftar sekarang!',
+              //             style: TextStyle(
+              //               color: ,
+              //               decoration: TextDecoration.underline,
+              //             ),
+              //             recognizer: TapGestureRecognizer()
+              //               ..onTap = () {
+              //                 Get.toNamed(Routes.REGISTER);
+              //               },
+              //           ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
