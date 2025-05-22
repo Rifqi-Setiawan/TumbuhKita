@@ -14,6 +14,7 @@ void main() {
           title: "Application",
           initialRoute: AppPages.INITIAL,
           getPages: AppPages.routes,
+          debugShowCheckedModeBanner: false,
           builder: (context, widget) {
             return widget!;
           },

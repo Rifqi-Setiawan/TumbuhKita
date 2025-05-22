@@ -109,7 +109,9 @@ class LoginView extends GetView<LoginController> {
                   hintText: "Masukkan kata sandi",
                 ),
                 SizedBox(height: 15.sp),
-                CustomButtonAuth(text: "Masuk", onPressed: () {}),
+                CustomButtonAuth(text: "Masuk", onPressed: () {
+                  Get.offAllNamed(Routes.NAVIGATION);
+                }),
                 SizedBox(
                   height: 10.sp,
                 ),
