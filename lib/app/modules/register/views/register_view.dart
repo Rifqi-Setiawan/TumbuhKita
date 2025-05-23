@@ -6,7 +6,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
-import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/custom_button_auth.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_role_auth.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';

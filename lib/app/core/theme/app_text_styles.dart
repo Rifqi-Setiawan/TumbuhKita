@@ -39,6 +39,32 @@ class AppTextStyles {
     color: AppColors.neutral90,
   );
 
+  static TextStyle heading8SemiBold = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 18.sp,
+    fontWeight: FontWeight.w700,
+    height: 1.0,
+    letterSpacing: 0.13.sp,
+    color: AppColors.neutral90,
+  );
+  static TextStyle heading7SemiBold = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 20.sp,
+    fontWeight: FontWeight.w700,
+    height: 1.0,
+    letterSpacing: 0.13.sp,
+    color: AppColors.neutral90,
+  );
+
+  static TextStyle heading4SemiBold = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 32.sp,
+    fontWeight: FontWeight.w600,
+    height: 1.0,
+    letterSpacing: 0.13.sp,
+    color: AppColors.neutral90,
+  );
+
   static TextStyle body1Regular = TextStyle(
     fontFamily: 'Poppins',
     fontSize: 16.sp,
