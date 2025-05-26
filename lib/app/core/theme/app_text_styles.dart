@@ -165,6 +165,14 @@ class AppTextStyles {
     letterSpacing: 0,
   );
 
+  static TextStyle caption2Regular = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 11,
+    fontWeight: FontWeight.w400,
+    height: 1.0,
+    letterSpacing: 0,
+  );
+
   static TextStyle body3Regular = TextStyle(
     fontFamily: 'Poppins',
     fontSize: 12,
