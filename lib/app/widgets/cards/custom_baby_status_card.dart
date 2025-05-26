@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/get_core.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
-import 'package:tumbuh_kita/app/core/theme/colors.dart';
-import 'dart:math' as math;
+
+import 'package:tumbuh_kita/app/routes/app_pages.dart';
 
 class GridItemInfo {
   final String title;
@@ -142,38 +144,43 @@ class CustomBabyStatusCard extends StatelessWidget {
             child: Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: [
-                    ClipRRect(
-                      borderRadius: BorderRadius.circular(100.r),
-                      child: SizedBox(
-                        height: 45.h,
-                        width: 45.w,
-                        child: Image.asset(
-                          babyProfileImagePath,
-                          fit: BoxFit.cover,
+                GestureDetector(
+                  onTap: (){
+                    Get.toNamed(Routes.DETAIL_BABY);
+                  },
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ClipRRect(
+                        borderRadius: BorderRadius.circular(100.r),
+                        child: SizedBox(
+                          height: 45.h,
+                          width: 45.w,
+                          child: Image.asset(
+                            babyProfileImagePath,
+                            fit: BoxFit.cover,
+                          ),
                         ),
                       ),
-                    ),
-                    SizedBox(width: 9.w),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text(
-                          babyName,
-                          style: AppTextStyles.body2Bold,
-                        ),
-                        SizedBox(height: 3.h),
-                        Text(
-                          babyAge,
-                          style: AppTextStyles.body3Regular,
-                        ),
-                      ],
-                    ),
-                    const Spacer(),
-                    Icon(Icons.chevron_right, size: 45.sp),
-                  ],
+                      SizedBox(width: 9.w),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            babyName,
+                            style: AppTextStyles.body2Bold,
+                          ),
+                          SizedBox(height: 3.h),
+                          Text(
+                            babyAge,
+                            style: AppTextStyles.body3Regular,
+                          ),
+                        ],
+                      ),
+                      const Spacer(),
+                      Icon(Icons.chevron_right, size: 45.sp),
+                    ],
+                  ),
                 ),
                 SizedBox(height: 10.h),
                 GridView.count(

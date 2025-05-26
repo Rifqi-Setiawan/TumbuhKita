@@ -10,6 +10,7 @@ abstract class Routes {
   static const POSYANDU = _Paths.POSYANDU;
   static const FORUM = _Paths.FORUM;
   static const NAVIGATION = _Paths.NAVIGATION;
+  static const DETAIL_BABY = _Paths.DETAIL_BABY;
 }
 
 abstract class _Paths {
@@ -21,4 +22,5 @@ abstract class _Paths {
   static const POSYANDU = '/posyandu';
   static const FORUM = '/forum';
   static const NAVIGATION = '/navigation';
+  static const DETAIL_BABY = '/detail-baby';
 }

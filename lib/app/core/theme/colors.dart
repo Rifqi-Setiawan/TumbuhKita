@@ -6,7 +6,7 @@ class AppColors {
   static const primary30 = Color(0xFFB498FF);
   static const primary50 = Color(0xFFA17EFF);
   static const primary70 = Color(0xFF9171E6);
-  static const primary90 = Color(0xFF7588B3);
+  static const primary90 = Color(0xFF7158B3);
 
   // Secondary - Deep Violet
   static const secondary10 = Color(0xFF806DA0);

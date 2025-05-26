@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../modules/artikel/bindings/artikel_binding.dart';
 import '../modules/artikel/views/artikel_view.dart';
+import '../modules/detailBaby/bindings/detail_baby_binding.dart';
+import '../modules/detailBaby/views/detail_baby_view.dart';
 import '../modules/forum/bindings/forum_binding.dart';
 import '../modules/forum/views/forum_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -88,6 +90,11 @@ class AppPages {
       name: _Paths.NAVIGATION,
       page: () => const NavigationView(),
       binding: NavigationBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_BABY,
+      page: () => const DetailBabyView(),
+      binding: DetailBabyBinding(),
     ),
   ];
 }

@@ -83,7 +83,7 @@ class NavigationView extends GetView<NavigationController> {
             clipBehavior: Clip.none, // Izinkan Indikator Aktif keluar dari batas SizedBox
             alignment: Alignment.bottomCenter,
             children: [
-              // Layer 1: Bar Navigasi Putih (Dasar)
+
               Positioned(
                 left: 0,
                 right: 0,
@@ -149,15 +149,10 @@ class NavigationView extends GetView<NavigationController> {
               // Layer 2: Indikator Aktif yang Bergerak (Bulatan Ungu)
               TweenAnimationBuilder<double>(
                 tween: Tween<double>(begin: indicatorLeftX, end: indicatorLeftX),
-                duration: const Duration(milliseconds: 300), // Durasi animasi
-                curve: Curves.easeOutQuint, // Kurva animasi
+                duration: const Duration(milliseconds: 0), 
                 builder: (context, animatedLeftX, child) {
                   return Positioned(
                     left: animatedLeftX,
-                    // Atur 'bottom' agar pusat Indikator Aktif berada di sekitar
-                    // tepi atas bar putih, sehingga menciptakan ilusi notch.
-                    // Jika pusat Indikator Aktif = tepi atas bar putih:
-                    // bottom = tinggi_bar_putih - radius_indikator
                     bottom: bottomBarHeight - (movingIndicatorSize / 2),
                     width: movingIndicatorSize,
                     height: movingIndicatorSize,

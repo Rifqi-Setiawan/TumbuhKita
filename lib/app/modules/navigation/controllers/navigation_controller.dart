@@ -4,6 +4,7 @@ import 'package:tumbuh_kita/app/routes/app_pages.dart';
 
 class NavigationController extends GetxController {
   //TODO: Implement NavigationController
+  static const int NAVIGATOR_KEY_HOME = 1;
   var selectedIndex = 0.obs;
   final List<Map<String, dynamic>> navigationItemsData = [
     {'label': 'Home', 'icon': Icons.home_outlined, 'selectedIcon': Icons.home, 'route': Routes.HOME},

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
+import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
 // AppColors mungkin tidak lagi dibutuhkan di sini jika sudah dihandle BabyStatusCard
 // import 'package:tumbuh_kita/app/core/theme/colors.dart';
@@ -59,6 +60,66 @@ class HomeView extends GetView<HomeController> {
             SizedBox(height: 27.h),
             Text("Pengingat", style: AppTextStyles.heading7SemiBold),
             SizedBox(height: 5.h),
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.white,
+                borderRadius: BorderRadius.circular(15),
+                boxShadow: [
+                  BoxShadow(
+                    color: Colors.black.withOpacity(0.1),
+                    spreadRadius: 1,
+                    blurRadius: 5,
+                    offset: const Offset(1, 2),
+                  ),
+                ],
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    decoration: BoxDecoration(
+                      color: AppColors.primary90,
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(15),
+                        bottomLeft: Radius.circular(15),
+                        topRight: Radius.circular(8),
+                        bottomRight: Radius.circular(8),
+                      ),
+                    ),
+                    padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                    child: Column(
+                      children: [
+                        Text(
+                          "NOV \n2025",
+                          style: AppTextStyles.body3Semibold.copyWith(
+                            color: Colors.white,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 13,
+                    ),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Jadwal Vaksin", style: AppTextStyles.body3Medium),
+                        SizedBox(height: 8),
+                        Text(
+                          "Heptatitis B",
+                          style: AppTextStyles.caption1Regular,
+                        ),
+                        Text(
+                          "Usia 18 Bulan",
+                          style: AppTextStyles.caption1Regular,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),

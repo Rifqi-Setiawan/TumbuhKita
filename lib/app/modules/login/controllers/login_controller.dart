@@ -10,4 +10,18 @@ class LoginController extends GetxController {
   void selectRole(String role) {
     selectedRole.value = role;
   }
+    @override
+  void onInit() {
+    super.onInit();
+  }
+
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
 }
