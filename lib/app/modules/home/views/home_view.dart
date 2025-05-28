@@ -3,9 +3,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
-// AppColors mungkin tidak lagi dibutuhkan di sini jika sudah dihandle BabyStatusCard
-// import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
@@ -25,7 +24,6 @@ class HomeView extends GetView<HomeController> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 51.h),
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -120,6 +118,14 @@ class HomeView extends GetView<HomeController> {
                 ],
               ),
             ),
+            SizedBox(
+              height: 9.h,
+            ),
+            Text("Artikel", 
+            style: AppTextStyles.heading7SemiBold,
+            ),
+            SizedBox(height: 5.h),
+            CustomArtikelCard()
           ],
         ),
       ),

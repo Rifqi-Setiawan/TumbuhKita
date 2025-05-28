@@ -28,29 +28,35 @@ class NavigationView extends GetView<NavigationController> {
 
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
-      // extendBody WAJIB true agar ilusi notch bekerja dan body tidak terpotong
       extendBody: true,
-      body: Navigator(
-        key: Get.nestedKey(1),
-        initialRoute: Routes.HOME,
-        onGenerateRoute: (routeSettings) {
-          final page = AppPages.routes
-              .firstWhere((route) => route.name == Routes.NAVIGATION)
-              .children
-              .firstWhere(
-                (page) => page.name == routeSettings.name,
-                orElse: () => AppPages.routes
+      body: SafeArea(
+        child: Expanded(
+          child: SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: Navigator(
+              key: Get.nestedKey(1),
+              initialRoute: Routes.HOME,
+              onGenerateRoute: (routeSettings) {
+                final page = AppPages.routes
                     .firstWhere((route) => route.name == Routes.NAVIGATION)
                     .children
-                    .firstWhere((page) => page.name == Routes.HOME),
-              );
-          return GetPageRoute(
-            settings: routeSettings,
-            page: page.page,
-            binding: page.binding,
-            transition: page.transition ?? Get.defaultTransition,
-          );
-        },
+                    .firstWhere(
+                      (page) => page.name == routeSettings.name,
+                      orElse: () => AppPages.routes
+                          .firstWhere((route) => route.name == Routes.NAVIGATION)
+                          .children
+                          .firstWhere((page) => page.name == Routes.HOME),
+                    );
+                return GetPageRoute(
+                  settings: routeSettings,
+                  page: page.page,
+                  binding: page.binding,
+                  transition: page.transition ?? Get.defaultTransition,
+                );
+              },
+            ),
+          ),
+        ),
       ),
       bottomNavigationBar: Obx(() {
         if (controller.navigationItemsData.isEmpty) {
