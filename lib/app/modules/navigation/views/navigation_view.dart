@@ -29,38 +29,30 @@ class NavigationView extends GetView<NavigationController> {
     return Scaffold(
       backgroundColor: scaffoldBackgroundColor,
       extendBody: true,
-      body: SafeArea(
-        child: Expanded(
-          child: SingleChildScrollView(
-            scrollDirection: Axis.vertical,
-            child: Navigator(
-              key: Get.nestedKey(1),
-              initialRoute: Routes.HOME,
-              onGenerateRoute: (routeSettings) {
-                final page = AppPages.routes
+      body: Navigator(
+        key: Get.nestedKey(1),
+        initialRoute: Routes.HOME,
+        onGenerateRoute: (routeSettings) {
+          final page = AppPages.routes
+              .firstWhere((route) => route.name == Routes.NAVIGATION)
+              .children
+              .firstWhere(
+                (page) => page.name == routeSettings.name,
+                orElse: () => AppPages.routes
                     .firstWhere((route) => route.name == Routes.NAVIGATION)
                     .children
-                    .firstWhere(
-                      (page) => page.name == routeSettings.name,
-                      orElse: () => AppPages.routes
-                          .firstWhere((route) => route.name == Routes.NAVIGATION)
-                          .children
-                          .firstWhere((page) => page.name == Routes.HOME),
-                    );
-                return GetPageRoute(
-                  settings: routeSettings,
-                  page: page.page,
-                  binding: page.binding,
-                  transition: page.transition ?? Get.defaultTransition,
-                );
-              },
-            ),
-          ),
-        ),
+                    .firstWhere((page) => page.name == Routes.HOME),
+              );
+          return GetPageRoute(
+            settings: routeSettings,
+            page: page.page,
+            binding: page.binding,
+            transition: page.transition ?? Get.defaultTransition,
+          );
+        },
       ),
       bottomNavigationBar: Obx(() {
         if (controller.navigationItemsData.isEmpty) {
-          // Placeholder jika data belum ada, tingginya disesuaikan
           return SizedBox(height: bottomBarHeight + (movingIndicatorSize / 2) - (movingIndicatorSize * 0.35));
         }
         final itemCount = controller.navigationItemsData.length;
@@ -74,19 +66,13 @@ class NavigationView extends GetView<NavigationController> {
 
         final double indicatorCenterX = (itemWidth * selectedIndex) + (itemWidth / 2);
         final double indicatorLeftX = indicatorCenterX - (movingIndicatorSize / 2);
-
-        // Tinggi total yang dibutuhkan oleh slot bottomNavigationBar di Scaffold
-        // agar Indikator Aktif tidak menyebabkan overflow terdeteksi.
-        // Yaitu tinggi bar + bagian indikator yang menonjol ke atas.
-        // Indikator akan diposisikan agar pusatnya kira-kira di tepi atas bar.
-        // Jadi, setengah indikator (radius) akan menonjol ke atas.
-        final double totalVisualHeight = bottomBarHeight + (movingIndicatorSize / 2) - (movingIndicatorSize * 0.35); // Kurangi sedikit jika indikator tidak menonjol penuh
+        final double totalVisualHeight = bottomBarHeight + (movingIndicatorSize / 2) - (movingIndicatorSize * 0.35);
 
 
         return SizedBox(
-          height: totalVisualHeight, // Laporkan tinggi ini ke Scaffold
+          height: totalVisualHeight,
           child: Stack(
-            clipBehavior: Clip.none, // Izinkan Indikator Aktif keluar dari batas SizedBox
+            clipBehavior: Clip.none, 
             alignment: Alignment.bottomCenter,
             children: [
 

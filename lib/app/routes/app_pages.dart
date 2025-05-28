@@ -35,25 +35,25 @@ class AppPages {
             name: _Paths.HOME,
             page: () => const HomeView(),
             binding: HomeBinding(),
-            // transition: Transition.noTransition, // Opsional: matikan animasi transisi
+            transition: Transition.noTransition
           ),
           GetPage(
             name: _Paths.ARTIKEL,
             page: () => const ArtikelView(),
             binding: ArtikelBinding(),
-            // transition: Transition.noTransition,
+            transition: Transition.noTransition
           ),
           GetPage(
             name: _Paths.POSYANDU,
             page: () => const PosyanduView(),
             binding: PosyanduBinding(),
-            // transition: Transition.noTransition,
+            transition: Transition.noTransition,
           ),
           GetPage(
             name: _Paths.FORUM,
             page: () => const ForumView(),
             binding: ForumBinding(),
-            // transition: Transition.noTransition,
+            transition: Transition.noTransition,
           ),
         ]),
     GetPage(
