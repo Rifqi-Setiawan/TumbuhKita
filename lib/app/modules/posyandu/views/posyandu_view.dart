@@ -9,16 +9,7 @@ class PosyanduView extends GetView<PosyanduController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('PosyanduView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'PosyanduView is working',
-          style: TextStyle(fontSize: 20),
-        ),
-      ),
+      body: Text("posyandu page"),
     );
   }
 }

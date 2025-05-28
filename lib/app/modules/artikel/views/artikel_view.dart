@@ -42,7 +42,7 @@ class ArtikelView extends GetView<ArtikelController> {
                 SizedBox(height: 14.h,),
                 CustomArtikelCard(),
                 SizedBox(height: 10.h,),
-                CustomArtikelCard()
+                CustomArtikelCard(),
               ],
             ),
           ),
