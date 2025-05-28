@@ -50,6 +50,15 @@ class AppTextStyles {
   static TextStyle heading7SemiBold = TextStyle(
     fontFamily: 'Poppins',
     fontSize: 20,
+    fontWeight: FontWeight.w600,
+    height: 1.0,
+    letterSpacing: 0.13,
+    color: AppColors.neutral90,
+  );
+
+  static TextStyle heading7Bold = TextStyle(
+    fontFamily: 'Poppins',
+    fontSize: 20,
     fontWeight: FontWeight.w700,
     height: 1.0,
     letterSpacing: 0.13,
