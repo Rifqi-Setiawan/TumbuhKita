@@ -38,6 +38,7 @@ dependencies:
   flutter_screenutil: ^5.5.4
   font_awesome_flutter: ^10.8.0
   fl_chart: ^1.0.0
+  flutter_native_splash: ^2.4.6
 
 dev_dependencies:
   flutter_test:
@@ -103,3 +104,4 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+  

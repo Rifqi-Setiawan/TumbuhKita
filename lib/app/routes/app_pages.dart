@@ -16,8 +16,8 @@ import '../modules/posyandu/bindings/posyandu_binding.dart';
 import '../modules/posyandu/views/posyandu_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
-import '../modules/splash_screen/bindings/splash_screen_binding.dart';
-import '../modules/splash_screen/views/splash_screen_view.dart';
+import '../modules/transition/bindings/splash_screen_binding.dart';
+import '../modules/transition/views/splash_screen_view.dart';
 
 part 'app_routes.dart';
 

@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'app/routes/app_pages.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(
     ScreenUtilInit(
       designSize: Size(402, 874),
