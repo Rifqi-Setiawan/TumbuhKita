@@ -19,7 +19,6 @@ class DynamicNotchedBarPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // size adalah ukuran dari CustomPaint (lebar penuh, tinggi barHeight)
     final paint =
         Paint()
           ..color = color
@@ -32,18 +31,14 @@ class DynamicNotchedBarPainter extends CustomPainter {
       radius: Radius.circular(cornerRadius),
       clockwise: false,
     );
-
-    // Garis lurus ke awal lekukan (notch)
     path.lineTo(notchCenterX - notchRadius, 0);
     path.arcToPoint(
-      Offset(notchCenterX + notchRadius, 0), // Titik akhir lekukan
+      Offset(notchCenterX + notchRadius, 0), 
       radius: Radius.circular(notchRadius),
       clockwise:
           false, 
     );
     path.lineTo(size.width - cornerRadius, 0);
-
-    // Sudut kanan atas
     path.arcToPoint(
       Offset(size.width, cornerRadius),
       radius: Radius.circular(cornerRadius),

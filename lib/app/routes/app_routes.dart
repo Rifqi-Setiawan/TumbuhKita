@@ -1,5 +1,4 @@
 part of 'app_pages.dart';
-// DO NOT EDIT. This is code generated via package:get_cli/get_cli.dart
 
 abstract class Routes {
   Routes._();
@@ -11,7 +10,7 @@ abstract class Routes {
   static const FORUM = _Paths.FORUM;
   static const NAVIGATION = _Paths.NAVIGATION;
   static const DETAIL_BABY = _Paths.DETAIL_BABY;
-  static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
+  static const TRANSITION = _Paths.TRANSITION;
 }
 
 abstract class _Paths {
@@ -24,5 +23,5 @@ abstract class _Paths {
   static const FORUM = '/forum';
   static const NAVIGATION = '/navigation';
   static const DETAIL_BABY = '/detail-baby';
-  static const SPLASH_SCREEN = '/splash-screen';
+  static const TRANSITION = '/transition';
 }

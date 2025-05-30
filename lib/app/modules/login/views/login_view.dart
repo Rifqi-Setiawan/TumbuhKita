@@ -110,7 +110,7 @@ class LoginView extends GetView<LoginController> {
                 ),
                 SizedBox(height: 15.sp),
                 CustomButtonAuth(text: "Masuk", onPressed: () {
-                  Get.offAllNamed(Routes.NAVIGATION);
+                  Get.offAllNamed(Routes.TRANSITION);
                 }),
                 SizedBox(
                   height: 10.sp,

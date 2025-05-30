@@ -104,10 +104,7 @@ class NavigationView extends GetView<NavigationController> {
                         child: GestureDetector(
                           onTap: () => controller.changePage(index),
                           behavior: HitTestBehavior.opaque,
-                          // Tidak ada feedback visual (splash) saat tap pada item bar
                           child: Opacity(
-                            // Item di bar (ikon & label) akan transparan jika terpilih,
-                            // karena Indikator Aktif yang akan mewakilinya.
                             opacity: isSelected ? 0.0 : 1.0,
                             child: Column(
                               mainAxisSize: MainAxisSize.min,

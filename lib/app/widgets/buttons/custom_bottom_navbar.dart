@@ -33,7 +33,7 @@ class CustomBottomNavbar extends StatelessWidget {
         if (navController.navigationItemsData.isEmpty) {
           return const SizedBox(
             height: navBarHeight,
-            child: Center(child: Text("Loading nav items...")), // Atau CircularProgressIndicator
+            child: Center(child: Text("Loading nav items...")),
           );
         }
 
@@ -43,10 +43,10 @@ class CustomBottomNavbar extends StatelessWidget {
           height: navBarHeight,
           // Margin agar terlihat efek melayang & rounded
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
-          padding: const EdgeInsets.only(bottom: 5), // Sedikit padding bawah untuk label
+          padding: const EdgeInsets.only(bottom: 5), 
           decoration: BoxDecoration(
             color: navBarBackgroundColor,
-            borderRadius: BorderRadius.circular(25.0), // Rounded corners untuk bar
+            borderRadius: BorderRadius.circular(25.0),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withOpacity(0.15),
@@ -61,9 +61,8 @@ class CustomBottomNavbar extends StatelessWidget {
               // --- Indikator Bulat yang Dianimasikan ---
               AnimatedPositioned(
                 duration: const Duration(milliseconds: 300),
-                curve: Curves.easeInOutCirc, // Kurva animasi
+                curve: Curves.easeInOutCirc,
                 left: (itemWidth * selectedIndex) + (itemWidth - indicatorSize) / 2,
-                // Posisikan sedikit ke atas dari tengah vertikal navbar agar ikon masuk
                 top: (navBarHeight - indicatorSize - itemTopPadding) / 2 - (indicatorSize/4) + (itemTopPadding/2) -2, // Sesuaikan ini
                 child: Container(
                   width: indicatorSize,
@@ -78,20 +77,19 @@ class CustomBottomNavbar extends StatelessWidget {
               // --- Item-item Navigasi ---
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
-                crossAxisAlignment: CrossAxisAlignment.center, // Pusatkan item secara vertikal
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: List.generate(itemCount, (index) {
                   final itemData = navController.navigationItemsData[index];
                   final bool isSelected = selectedIndex == index;
 
-                  return Expanded( // Gunakan Expanded agar setiap item mengambil ruang yang sama
+                  return Expanded( 
                     child: GestureDetector(
                       onTap: () => navController.changePage(index),
-                      behavior: HitTestBehavior.opaque, // Agar area kosong juga bisa di-tap
+                      behavior: HitTestBehavior.opaque, 
                       child: Container(
-                        // backgroundColor: isSelected ? Colors.red.withOpacity(0.1) : null, // Untuk debug area tap
                         padding: const EdgeInsets.only(top: itemTopPadding),
                         child: Column(
-                          mainAxisSize: MainAxisSize.min, // Agar Column tidak mengambil tinggi maksimal
+                          mainAxisSize: MainAxisSize.min, 
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             Icon(
@@ -101,7 +99,7 @@ class CustomBottomNavbar extends StatelessWidget {
                               color: isSelected
                                   ? selectedIconColor
                                   : unselectedItemColor,
-                              size: 26.0, // Sesuaikan ukuran ikon
+                              size: 26.0, 
                             ),
                             const SizedBox(height: 4.0),
                             Text(
@@ -110,9 +108,9 @@ class CustomBottomNavbar extends StatelessWidget {
                                 color: isSelected
                                     ? selectedLabelColor
                                     : unselectedItemColor,
-                                fontSize: 10.0, // Sesuaikan ukuran font
+                                fontSize: 10.0, 
                                 fontWeight: isSelected
-                                    ? FontWeight.w600 // Sedikit tebal saat terpilih
+                                    ? FontWeight.w600
                                     : FontWeight.normal,
                               ),
                               maxLines: 1,
