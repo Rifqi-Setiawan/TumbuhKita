@@ -1,29 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
-import 'package:tumbuh_kita/app/routes/app_pages.dart'; // Sesuaikan path
+import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import '../controllers/navigation_controller.dart';
+// Import custom navbar
+import 'package:tumbuh_kita/app/widgets/custom_navbar/custom_bottom_navbar.dart';
 
 class NavigationView extends GetView<NavigationController> {
   const NavigationView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final screenWidth = MediaQuery.of(context).size.width;
-
-    // --- DIMENSI DAN STYLE (SESUAIKAN DI SINI) ---
-    const double bottomBarHeight = 70.0;       // Tinggi bar navigasi putih
-    const double movingIndicatorSize = 62.0;   // Diameter Indikator Aktif (bulatan ungu)
-    const double iconInBarSize = 28.0;         // Ukuran ikon di bar (tidak terpilih)
-    const double iconOnIndicatorSize = 30.0;   // Ukuran ikon di Indikator Aktif (terpilih)
-    const double labelFontSize = 11.0;         // Ukuran font label
-    const double barCornerRadius = 25.0;       // Radius sudut untuk bar putih
-    const double barElevation = 8.0;           // Shadow untuk bar putih
-
-    const Color unselectedItemColor = Colors.grey;
-    const Color indicatorBackgroundColor = AppColors.primary70;
-    const Color iconOnIndicatorColor = Colors.white;
-    const Color bottomBarColor = Colors.white;
     const Color scaffoldBackgroundColor = Color(0xffF4F0FF);
 
     return Scaffold(
@@ -51,120 +38,8 @@ class NavigationView extends GetView<NavigationController> {
           );
         },
       ),
-      bottomNavigationBar: Obx(() {
-        if (controller.navigationItemsData.isEmpty) {
-          return SizedBox(height: bottomBarHeight + (movingIndicatorSize / 2) - (movingIndicatorSize * 0.35));
-        }
-        final itemCount = controller.navigationItemsData.length;
-        if (itemCount == 0) {
-          return SizedBox(height: bottomBarHeight + (movingIndicatorSize / 2) - (movingIndicatorSize * 0.35));
-        }
-
-        final itemWidth = screenWidth / itemCount;
-        final selectedIndex = controller.selectedIndex.value;
-        final selectedItemData = controller.navigationItemsData[selectedIndex];
-
-        final double indicatorCenterX = (itemWidth * selectedIndex) + (itemWidth / 2);
-        final double indicatorLeftX = indicatorCenterX - (movingIndicatorSize / 2);
-        final double totalVisualHeight = bottomBarHeight + (movingIndicatorSize / 2) - (movingIndicatorSize * 0.35);
-
-
-        return SizedBox(
-          height: totalVisualHeight,
-          child: Stack(
-            clipBehavior: Clip.none, 
-            alignment: Alignment.bottomCenter,
-            children: [
-
-              Positioned(
-                left: 0,
-                right: 0,
-                bottom: 0, // Bar putih berada di paling bawah dalam SizedBox ini
-                height: bottomBarHeight,
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: bottomBarColor,
-                    borderRadius: BorderRadius.circular(barCornerRadius),
-                    boxShadow: [
-                      BoxShadow(
-                        color: Colors.black.withOpacity(0.12),
-                        blurRadius: barElevation,
-                        offset: const Offset(0, -1), // Shadow ke atas
-                      ),
-                    ],
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: List.generate(itemCount, (index) {
-                      final itemData = controller.navigationItemsData[index];
-                      final bool isSelected = selectedIndex == index;
-
-                      return Expanded(
-                        child: GestureDetector(
-                          onTap: () => controller.changePage(index),
-                          behavior: HitTestBehavior.opaque,
-                          child: Opacity(
-                            opacity: isSelected ? 0.0 : 1.0,
-                            child: Column(
-                              mainAxisSize: MainAxisSize.min,
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: [
-                                Icon(
-                                  itemData['icon'],
-                                  color: unselectedItemColor,
-                                  size: iconInBarSize,
-                                ),
-                                const SizedBox(height: 4), // Jarak ikon dan label
-                                Text(
-                                  itemData['label'] ?? '',
-                                  style: const TextStyle(
-                                    fontSize: labelFontSize,
-                                    color: unselectedItemColor,
-                                  ),
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      );
-                    }),
-                  ),
-                ),
-              ),
-
-              // Layer 2: Indikator Aktif yang Bergerak (Bulatan Ungu)
-              TweenAnimationBuilder<double>(
-                tween: Tween<double>(begin: indicatorLeftX, end: indicatorLeftX),
-                duration: const Duration(milliseconds: 0), 
-                builder: (context, animatedLeftX, child) {
-                  return Positioned(
-                    left: animatedLeftX,
-                    bottom: bottomBarHeight - (movingIndicatorSize / 2),
-                    width: movingIndicatorSize,
-                    height: movingIndicatorSize,
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: indicatorBackgroundColor,
-                        shape: BoxShape.circle,
-                      ),
-                      child: Center(
-                        child: Icon(
-                          selectedItemData['selectedIcon'],
-                          color: iconOnIndicatorColor,
-                          size: iconOnIndicatorSize,
-                        ),
-                      ),
-                    ),
-                  );
-                },
-              ),
-            ],
-          ),
-        );
-      }),
+      // Ganti bottomNavigationBar dengan custom navbar
+      bottomNavigationBar: CustomBottomNavbar(navController: controller),
     );
   }
 }
