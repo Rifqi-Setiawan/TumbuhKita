@@ -11,6 +11,7 @@ abstract class Routes {
   static const NAVIGATION = _Paths.NAVIGATION;
   static const DETAIL_BABY = _Paths.DETAIL_BABY;
   static const TRANSITION = _Paths.TRANSITION;
+  static const DETAIL_PROFILE_ORANG_TUA = _Paths.DETAIL_PROFILE_ORANG_TUA;
 }
 
 abstract class _Paths {
@@ -24,4 +25,5 @@ abstract class _Paths {
   static const NAVIGATION = '/navigation';
   static const DETAIL_BABY = '/detail-baby';
   static const TRANSITION = '/transition';
+  static const DETAIL_PROFILE_ORANG_TUA = '/detail-profile-orang-tua';
 }

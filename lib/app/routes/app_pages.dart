@@ -4,6 +4,8 @@ import '../modules/artikel/bindings/artikel_binding.dart';
 import '../modules/artikel/views/artikel_view.dart';
 import '../modules/detailBaby/bindings/detail_baby_binding.dart';
 import '../modules/detailBaby/views/detail_baby_view.dart';
+import '../modules/detailProfileOrangTua/bindings/detail_profile_orang_tua_binding.dart';
+import '../modules/detailProfileOrangTua/views/detail_profile_orang_tua_view.dart';
 import '../modules/forum/bindings/forum_binding.dart';
 import '../modules/forum/views/forum_view.dart';
 import '../modules/home/bindings/home_binding.dart';
@@ -24,7 +26,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.DETAIL_PROFILE_ORANG_TUA;
 
   static final routes = [
     GetPage(
@@ -102,8 +104,13 @@ class AppPages {
       name: _Paths.TRANSITION,
       page: () => const TransitionView(),
       binding: TransitionBinding(),
-      transition: Transition.fadeIn, 
+      transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 800),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_PROFILE_ORANG_TUA,
+      page: () => const DetailProfileOrangTuaView(),
+      binding: DetailProfileOrangTuaBinding(),
     ),
   ];
 }

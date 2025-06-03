@@ -9,7 +9,6 @@ import 'package:tumbuh_kita/app/widgets/cards/custom_baby_detail_card.dart';
 import 'package:tumbuh_kita/app/widgets/category_chart_detailBaby.dart';
 import 'package:tumbuh_kita/app/widgets/components/detail_baby_chart_components.dart';
 import 'package:tumbuh_kita/app/widgets/custom_profile_baby.dart';
-import 'dart:math' as math;
 
 import '../controllers/detail_baby_controller.dart';
 
