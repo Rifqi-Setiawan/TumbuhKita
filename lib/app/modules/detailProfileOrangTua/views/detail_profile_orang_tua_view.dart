@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/widgets/buttons/custom_button_profile.dart';
 import 'package:tumbuh_kita/app/widgets/cards/detail_anak_profile.dart/custom_card_anak.dart';
-import 'package:tumbuh_kita/app/widgets/cards/detail_anak_profile.dart/detail_anak_profile_item.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_profile_data.dart';
 import 'package:tumbuh_kita/app/widgets/profile_akun_widget.dart';
 
@@ -20,6 +20,7 @@ class DetailProfileOrangTuaView
       backgroundColor: Color(0xffF4F0FF),
       appBar: AppBar(
         backgroundColor: Color(0xffF4F0FF),
+        elevation: 0,
         leading: IconButton(
           onPressed: () => Get.back(),
           icon: Icon(Icons.chevron_left, size: 40.sp),
@@ -99,7 +100,10 @@ class DetailProfileOrangTuaView
                 weight: "12.5 kg",
                 height: "89 cm",
               ),
-              customb
+              CustomButtonProfile(label: "Tambah Data Anak", onPressed: (){},),
+              SizedBox(height: 14.h),
+              CustomButtonProfile(label: "Perbarui", onPressed: (){},),
+              SizedBox(height: 45.h),
             ],
           ),
         ),

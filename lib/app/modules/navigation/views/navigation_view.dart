@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import '../controllers/navigation_controller.dart';
 // Import custom navbar

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 
 class CustomButtonProfile extends StatelessWidget {
@@ -10,13 +11,14 @@ class CustomButtonProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+        width: double.infinity,
       decoration: BoxDecoration(
         color: AppColors.primary70,
         borderRadius: BorderRadius.circular(14.r),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFF9F7BFF),
+          backgroundColor: AppColors.primary70,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14.r),
           ),
@@ -25,10 +27,8 @@ class CustomButtonProfile extends StatelessWidget {
         onPressed: onPressed,
         child: Text(
           label,
-          style: TextStyle(
-            color: Colors.white,
-            fontSize: 16.sp,
-            fontWeight: FontWeight.w600,
+          style: AppTextStyles.body1SemiBold.copyWith(
+            color: Colors.white
           ),
         ),
       ),
