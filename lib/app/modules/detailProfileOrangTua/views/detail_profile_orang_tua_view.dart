@@ -6,7 +6,7 @@ import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/custom_button_profile.dart';
 import 'package:tumbuh_kita/app/widgets/cards/detail_anak_profile.dart/custom_card_anak.dart';
-import 'package:tumbuh_kita/app/widgets/inputs/custom_profile_data.dart';
+import 'package:tumbuh_kita/app/widgets/inputs/custom_input_profile_data.dart';
 import 'package:tumbuh_kita/app/widgets/profile_akun_widget.dart';
 
 import '../controllers/detail_profile_orang_tua_controller.dart';
@@ -67,12 +67,12 @@ class DetailProfileOrangTuaView
                 ),
               ),
               SizedBox(height: 14.h),
-              CustomProfileData(
+              CustomInputProfileData(
                 label: "Nama Lengkap",
                 initialValue: "Rifqiiii",
               ),
               SizedBox(height: 14.h),
-              CustomProfileData(
+              CustomInputProfileData(
                 label: "Nomor Telepon",
                 initialValue: "0811111111",
               ),

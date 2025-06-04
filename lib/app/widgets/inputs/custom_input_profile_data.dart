@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 
-class CustomProfileData extends StatelessWidget {
+class CustomInputProfileData extends StatelessWidget {
   final String label;
   final String? initialValue;
   final ValueChanged<String>? onChanged;
   final TextEditingController? controller;
   final TextInputType keyboardType;
   final bool enabled;
+  final String? hintText;
 
-  const CustomProfileData({
+  const CustomInputProfileData({
     super.key,
     required this.label,
     this.initialValue,
@@ -18,6 +19,7 @@ class CustomProfileData extends StatelessWidget {
     this.controller,
     this.keyboardType = TextInputType.text,
     this.enabled = true,
+    this.hintText,
   });
 
   @override
@@ -25,8 +27,8 @@ class CustomProfileData extends StatelessWidget {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(label, style: AppTextStyles.body3Medium),
-        const SizedBox(height: 3),
+        Text(label, style: AppTextStyles.body2Semibold),
+        const SizedBox(height: 7),
         TextFormField(
           controller: controller,
           initialValue: controller == null ? initialValue : null,
@@ -40,6 +42,10 @@ class CustomProfileData extends StatelessWidget {
             contentPadding: const EdgeInsets.symmetric(
               horizontal: 14,
               vertical: 11,
+            ),
+            hintText: hintText, 
+            hintStyle: AppTextStyles.body2Medium.copyWith(
+              color: Colors.black.withOpacity(0.3),
             ),
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(25.r),
