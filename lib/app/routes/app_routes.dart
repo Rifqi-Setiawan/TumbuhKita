@@ -13,6 +13,8 @@ abstract class Routes {
   static const TRANSITION = _Paths.TRANSITION;
   static const DETAIL_PROFILE_ORANG_TUA = _Paths.DETAIL_PROFILE_ORANG_TUA;
   static const ADD_DATA_ANAK = _Paths.ADD_DATA_ANAK;
+  static const ADD_PERTANYAAN_FORUM_ORANG_TUA =
+      _Paths.ADD_PERTANYAAN_FORUM_ORANG_TUA;
 }
 
 abstract class _Paths {
@@ -28,4 +30,6 @@ abstract class _Paths {
   static const TRANSITION = '/transition';
   static const DETAIL_PROFILE_ORANG_TUA = '/detail-profile-orang-tua';
   static const ADD_DATA_ANAK = '/add-data-anak';
+  static const ADD_PERTANYAAN_FORUM_ORANG_TUA =
+      '/add-pertanyaan-forum-orang-tua';
 }

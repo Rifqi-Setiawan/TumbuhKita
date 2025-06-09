@@ -4,6 +4,8 @@ import '../modules/Imunisasi_orangTua/bindings/imunisasi_orangTua_binding.dart';
 import '../modules/Imunisasi_orangTua/views/imunisasi_orangTua_view.dart';
 import '../modules/addDataAnak/bindings/add_data_anak_binding.dart';
 import '../modules/addDataAnak/views/add_data_anak_view.dart';
+import '../modules/add_pertanyaan_forum_orangTua/bindings/add_pertanyaan_forum_orang_tua_binding.dart';
+import '../modules/add_pertanyaan_forum_orangTua/views/add_pertanyaan_forum_orang_tua_view.dart';
 import '../modules/artikel/bindings/artikel_binding.dart';
 import '../modules/artikel/views/artikel_view.dart';
 import '../modules/detailBaby/bindings/detail_baby_binding.dart';
@@ -83,10 +85,10 @@ class AppPages {
       binding: ArtikelBinding(),
     ),
     GetPage(
-          name: _Paths.IMUNISASI_ORANGTUA,
-          page: () => const ImunisasiOrangtuaView(),
-          binding: ImunisasiOrangtuaBinding(),
-          transition: Transition.noTransition,
+      name: _Paths.IMUNISASI_ORANGTUA,
+      page: () => const ImunisasiOrangtuaView(),
+      binding: ImunisasiOrangtuaBinding(),
+      transition: Transition.noTransition,
     ),
     GetPage(
       name: _Paths.FORUM,
@@ -119,6 +121,11 @@ class AppPages {
       name: _Paths.ADD_DATA_ANAK,
       page: () => const AddDataAnakView(),
       binding: AddDataAnakBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_PERTANYAAN_FORUM_ORANG_TUA,
+      page: () => const AddPertanyaanForumOrangTuaView(),
+      binding: AddPertanyaanForumOrangTuaBinding(),
     ),
   ];
 }

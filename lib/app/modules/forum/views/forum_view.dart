@@ -5,6 +5,7 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/cards/forum_question_card.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_search_bar.dart';
 
@@ -57,7 +58,7 @@ class ForumView extends GetView<ForumController> {
         padding: const EdgeInsets.only(bottom: 70.0),
         child: FloatingActionButton(
           onPressed: () {
-            // Get.toNamed('/forum/create');
+            Get.toNamed(Routes.ADD_PERTANYAAN_FORUM_ORANG_TUA);
           },
           backgroundColor: AppColors.primary90,
           elevation: 0,
