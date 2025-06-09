@@ -25,7 +25,7 @@ class NavigationController extends GetxController {
       'label': 'Imunisasi',
       'icon': Icons.vaccines_outlined,
       'selectedIcon': Icons.vaccines,
-      'route': Routes.POSYANDU,
+      'route': Routes.IMUNISASI_ORANGTUA,
     },
     {
       'label': 'Forum',
@@ -38,7 +38,7 @@ class NavigationController extends GetxController {
   final List<String> pageRoutes = [
     Routes.HOME,
     Routes.ARTIKEL,
-    Routes.POSYANDU,
+    Routes.IMUNISASI_ORANGTUA,
     Routes.FORUM,
   ];
 

@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-import '../modules/Imunisasi_orangTua/bindings/posyandu_binding.dart';
-import '../modules/Imunisasi_orangTua/views/posyandu_view.dart';
+import '../modules/Imunisasi_orangTua/bindings/imunisasi_orangTua_binding.dart';
+import '../modules/Imunisasi_orangTua/views/imunisasi_orangTua_view.dart';
 import '../modules/addDataAnak/bindings/add_data_anak_binding.dart';
 import '../modules/addDataAnak/views/add_data_anak_view.dart';
 import '../modules/artikel/bindings/artikel_binding.dart';
@@ -20,15 +20,15 @@ import '../modules/navigation/bindings/navigation_binding.dart';
 import '../modules/navigation/views/navigation_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
-import '../modules/transition/bindings/transition_binding.dart';
-import '../modules/transition/views/transition_view.dart';
+import '../modules/transition_1/bindings/transition_binding.dart';
+import '../modules/transition_1/views/transition_view.dart';
 
 part 'app_routes.dart';
 
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.ADD_DATA_ANAK;
+  static const INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -49,9 +49,9 @@ class AppPages {
           transition: Transition.noTransition,
         ),
         GetPage(
-          name: _Paths.POSYANDU,
-          page: () => const PosyanduView(),
-          binding: PosyanduBinding(),
+          name: _Paths.IMUNISASI_ORANGTUA,
+          page: () => const ImunisasiOrangtuaView(),
+          binding: ImunisasiOrangtuaBinding(),
           transition: Transition.noTransition,
         ),
         GetPage(
@@ -83,9 +83,10 @@ class AppPages {
       binding: ArtikelBinding(),
     ),
     GetPage(
-      name: _Paths.POSYANDU,
-      page: () => const PosyanduView(),
-      binding: PosyanduBinding(),
+          name: _Paths.IMUNISASI_ORANGTUA,
+          page: () => const ImunisasiOrangtuaView(),
+          binding: ImunisasiOrangtuaBinding(),
+          transition: Transition.noTransition,
     ),
     GetPage(
       name: _Paths.FORUM,

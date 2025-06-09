@@ -7,10 +7,10 @@ import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/category_imuniation.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_imunitation_card.dart';
 
-import '../controllers/posyandu_controller.dart';
+import '../controllers/imunisasi_orangTua_controller.dart';
 
-class PosyanduView extends GetView<PosyanduController> {
-  const PosyanduView({super.key});
+class ImunisasiOrangtuaView extends GetView<ImunisasiOrangtuaController> {
+  const ImunisasiOrangtuaView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(

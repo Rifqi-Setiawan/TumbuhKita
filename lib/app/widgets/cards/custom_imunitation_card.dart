@@ -29,7 +29,7 @@ class CustomImunitationCard extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Expanded(
-            // flex: 6,
+            // flex: 1,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -56,14 +56,27 @@ class CustomImunitationCard extends StatelessWidget {
             width: 30.w,
           ),
           Expanded(
-            // flex: 4,
+            // flex: 1,
             child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Icon(Icons.timer, color: AppColors.warning70),
-                Text(immunization.status,
-                style: AppTextStyles.body2Regular.copyWith(
-                  color: AppColors.warning70
-                ),),
+                Icon(
+                  immunization.status == 'Mendatang'
+                      ? Icons.access_time
+                      : Icons.check_circle_outline,
+                  color: immunization.status == 'Mendatang'
+                      ? AppColors.warning70
+                      : Colors.green,
+                ),
+                SizedBox(width: 6.w),
+                Text(
+                  immunization.status,
+                  style: AppTextStyles.body2Regular.copyWith(
+                    color: immunization.status == 'Mendatang'
+                        ? AppColors.warning70
+                        : Colors.green,
+                  ),
+                ),
               ],
             ),
           ),

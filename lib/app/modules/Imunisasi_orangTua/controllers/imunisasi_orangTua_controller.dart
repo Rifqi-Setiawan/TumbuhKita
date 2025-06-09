@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/widgets/models/Imunization_model.dart';
 
-class PosyanduController extends GetxController {
-  //TODO: Implement PosyanduController
+class ImunisasiOrangtuaController extends GetxController {
+  //TODO: Implement ImunisasiOrangtuaController
   final List<String> category = [ "semua", "mendatang", "selesai"];
   final RxString selectedCategory = "semua".obs;
   List<ImmunizationModel> get immunizationData => [
@@ -12,7 +12,7 @@ class PosyanduController extends GetxController {
       dosis: 1,
       umur: "2 tahun 1 bulan",
       jadwal: "5 Juni 2025",
-      status: "mendatang",
+      status: "Mendatang",
     ),
     ImmunizationModel(
       nama: "Ghani",
@@ -20,7 +20,7 @@ class PosyanduController extends GetxController {
       dosis: 3,
       umur: "2 tahun 1 bulan",
       jadwal: "15 Mei 2025",
-      status: "selesai",
+      status: "Selesai",
     ),
     ImmunizationModel(
       nama: "Sari",
@@ -28,7 +28,7 @@ class PosyanduController extends GetxController {
       dosis: 2,
       umur: "1 tahun 6 bulan",
       jadwal: "20 Maret 2025",
-      status: "terlambat",
+      status: "Selesai",
     ),
     ImmunizationModel(
       nama: "Ahmad",
@@ -36,7 +36,7 @@ class PosyanduController extends GetxController {
       dosis: 1,
       umur: "6 bulan",
       jadwal: "10 Juni 2025",
-      status: "mendatang",
+      status: "Mendatang",
     ),
     ImmunizationModel(
       nama: "Siti",
@@ -44,7 +44,7 @@ class PosyanduController extends GetxController {
       dosis: 2,
       umur: "1 tahun",
       jadwal: "2 April 2025",
-      status: "selesai",
+      status: "Mendatang",
     ),
   ];
 

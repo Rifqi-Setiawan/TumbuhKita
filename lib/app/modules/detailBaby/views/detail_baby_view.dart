@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
@@ -8,7 +7,6 @@ import 'package:tumbuh_kita/app/widgets/cards/custom_baby_detail_card.dart';
 import 'package:tumbuh_kita/app/widgets/category_chart_detailBaby.dart';
 import 'package:tumbuh_kita/app/widgets/components/detail_baby_chart_components.dart';
 import 'package:tumbuh_kita/app/widgets/custom_profile_baby.dart';
-
 import '../controllers/detail_baby_controller.dart';
 
 class DetailBabyView extends GetView<DetailBabyController> {
