@@ -80,6 +80,11 @@ class AppPages {
           binding: HomeTenagaKesehatanBinding(),
           transition: Transition.noTransition,
         ),
+        GetPage(
+          name: _Paths.STATISTIK_POSYANDU,
+          page: () => const StatistikPosyanduView(),
+          binding: StatistikPosyanduBinding(),
+        ),
       ],
     ),
     GetPage(
@@ -154,11 +159,6 @@ class AppPages {
       name: _Paths.HOME_TENAGA_KESEHATAN,
       page: () => const HomeTenagaKesehatanView(),
       binding: HomeTenagaKesehatanBinding(),
-    ),
-    GetPage(
-      name: _Paths.STATISTIK_POSYANDU,
-      page: () => const StatistikPosyanduView(),
-      binding: StatistikPosyanduBinding(),
     ),
   ];
 }

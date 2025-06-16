@@ -28,19 +28,13 @@ class NavigationController extends GetxController {
   @override
   void onInit() {
     super.onInit();
-    // Panggil metode setup saat controller diinisialisasi
     _setupNavigationForRole();
   }
-
-  /// Metode untuk mengatur item navigasi dan route awal berdasarkan role pengguna.
   void _setupNavigationForRole() async {
-    // Gunakan 'await' jika getRole() adalah Future
-    final role = await RoleStorageHelper.getRole();
+    final role = RoleStorageHelper.getRole();
     print("Current Role: $role");
 
     List<Map<String, dynamic>> newNavItems = [];
-
-    // Gunakan switch-case untuk logika yang lebih bersih
     switch (role) {
       case 'Posyandu':
         initialRoute = Routes.HOME_POSYANDU;
@@ -61,7 +55,7 @@ class NavigationController extends GetxController {
             'label': 'Posyandu', 
             'icon': Icons.local_hospital_outlined,
             'selectedIcon': Icons.local_hospital,
-            // 'route': Routes.JADWAL_POSYANDU,
+            'route': Routes.IMUNISASI_ORANGTUA,
           },
           {
             'label': 'Forum',
@@ -121,15 +115,8 @@ class NavigationController extends GetxController {
         ];
         break;
     }
-
-    // --- Update state controller ---
-    // 1. Perbarui navigationItemsData dengan list yang baru
     navigationItemsData.assignAll(newNavItems);
-    
-    // 2. Buat list pageRoutes secara otomatis dari navigationItemsData
     pageRoutes.assignAll(newNavItems.map((item) => item['route'] as String).toList());
-
-    // 3. Reset selectedIndex ke 0 untuk menghindari error jika jumlah item berubah
     selectedIndex.value = 0;
   }
 }
