@@ -17,6 +17,7 @@ abstract class Routes {
       _Paths.ADD_PERTANYAAN_FORUM_ORANG_TUA;
   static const HOME_POSYANDU = _Paths.HOME_POSYANDU;
   static const HOME_TENAGA_KESEHATAN = _Paths.HOME_TENAGA_KESEHATAN;
+  static const STATISTIK_POSYANDU = _Paths.STATISTIK_POSYANDU;
 }
 
 abstract class _Paths {
@@ -36,4 +37,5 @@ abstract class _Paths {
       '/add-pertanyaan-forum-orang-tua';
   static const HOME_POSYANDU = '/home-posyandu';
   static const HOME_TENAGA_KESEHATAN = '/home-tenaga-kesehatan';
+  static const STATISTIK_POSYANDU = '/statistik-posyandu';
 }

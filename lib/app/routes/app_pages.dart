@@ -26,6 +26,8 @@ import '../modules/navigation/bindings/navigation_binding.dart';
 import '../modules/navigation/views/navigation_view.dart';
 import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
+import '../modules/statistik_posyandu/bindings/statistik_posyandu_binding.dart';
+import '../modules/statistik_posyandu/views/statistik_posyandu_view.dart';
 import '../modules/transition_1/bindings/transition_binding.dart';
 import '../modules/transition_1/views/transition_view.dart';
 
@@ -152,6 +154,11 @@ class AppPages {
       name: _Paths.HOME_TENAGA_KESEHATAN,
       page: () => const HomeTenagaKesehatanView(),
       binding: HomeTenagaKesehatanBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATISTIK_POSYANDU,
+      page: () => const StatistikPosyanduView(),
+      binding: StatistikPosyanduBinding(),
     ),
   ];
 }

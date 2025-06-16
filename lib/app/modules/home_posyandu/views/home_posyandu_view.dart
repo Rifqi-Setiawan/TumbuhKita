@@ -8,6 +8,7 @@ import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/custom_add_button.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
+import 'package:tumbuh_kita/app/widgets/cards/custom_daftar_anak_card.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';
 
 import '../controllers/home_posyandu_controller.dart';
@@ -187,7 +188,12 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                     ),
                   ],
                 ),
-                SizedBox(height: 5.h),
+                SizedBox(height: 8.h),
+                CustomDaftarAnakCard(
+                  imageUrl: 'assets/images/bayi2.jpg',
+                  name: 'Nadhira Salsabila Vanka',
+                  description: 'Usia 18 Bulan',
+                ),
               ],
             ),
           ),

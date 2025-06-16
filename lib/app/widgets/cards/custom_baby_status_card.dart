@@ -39,8 +39,6 @@ class CustomBabyStatusCard extends StatelessWidget {
   final String? babyAge;
   final String? babyProfileImagePath;
   final String? stepFootImagePath;
-  
-  // Tambahkan callback opsional untuk header
   final VoidCallback? onHeaderTap;
 
   const CustomBabyStatusCard({
@@ -51,7 +49,7 @@ class CustomBabyStatusCard extends StatelessWidget {
     this.babyAge,
     this.babyProfileImagePath,
     this.stepFootImagePath,
-    this.onHeaderTap, // Inisialisasi callback
+    this.onHeaderTap, 
   }) : assert(
             role == 'posyandu' ||
                 (babyName != null &&
@@ -59,10 +57,7 @@ class CustomBabyStatusCard extends StatelessWidget {
                     babyProfileImagePath != null &&
                     stepFootImagePath != null),
             'Info bayi (nama, umur, path gambar) harus disediakan untuk role selain "posyandu".');
-
-  // Widget _buildGridItem tidak ada perubahan
   Widget _buildGridItem({required GridItemInfo itemInfo}) {
-    // ... (kode _buildGridItem tidak ada perubahan)
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
       decoration: BoxDecoration(
