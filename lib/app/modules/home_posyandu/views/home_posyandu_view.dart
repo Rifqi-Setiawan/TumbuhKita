@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
+import 'package:tumbuh_kita/app/widgets/buttons/custom_add_button.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
 
@@ -62,8 +63,18 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                   gridItemsData: controller.dummyGridItems,
                 ),
                 SizedBox(height: 27.h),
-                Text("Pengingat", style: AppTextStyles.heading7SemiBold),
-                SizedBox(height: 5.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text("Kegiatan", style: AppTextStyles.heading7SemiBold),
+                    CustomAddButton(
+                      onPressed: () => {},
+                      padding: EdgeInsets.all(4.sp),
+                    ),
+                  ],
+                ),
+                
+                SizedBox(height: 10.h),
                 Container(
                   decoration: BoxDecoration(
                     color: Colors.white,
@@ -128,11 +139,11 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                 SizedBox(
                   height: 9.h,
                 ),
-                Text("Artikel", 
+                Text("Daftar Anak", 
                 style: AppTextStyles.heading7SemiBold,
                 ),
                 SizedBox(height: 5.h),
-                CustomArtikelCard()
+               
               ],
             ),
           ),
