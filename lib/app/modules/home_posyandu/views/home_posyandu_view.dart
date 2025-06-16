@@ -8,6 +8,7 @@ import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/custom_add_button.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
+import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';
 
 import '../controllers/home_posyandu_controller.dart';
 
@@ -73,7 +74,6 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                     ),
                   ],
                 ),
-                
                 SizedBox(height: 10.h),
                 Container(
                   decoration: BoxDecoration(
@@ -100,7 +100,10 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                             bottomRight: Radius.circular(8),
                           ),
                         ),
-                        padding: EdgeInsets.symmetric(horizontal: 25, vertical: 25),
+                        padding: EdgeInsets.symmetric(
+                          horizontal: 25,
+                          vertical: 25,
+                        ),
                         child: Column(
                           children: [
                             Text(
@@ -113,13 +116,14 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                         ),
                       ),
                       Padding(
-                        padding: const EdgeInsets.symmetric(
-                          horizontal: 13,
-                        ),
+                        padding: const EdgeInsets.symmetric(horizontal: 13),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text("Jadwal Vaksin", style: AppTextStyles.body3Medium),
+                            Text(
+                              "Jadwal Vaksin",
+                              style: AppTextStyles.body3Medium,
+                            ),
                             SizedBox(height: 5),
                             Text(
                               "Heptatitis B",
@@ -136,14 +140,54 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 9.h,
-                ),
-                Text("Daftar Anak", 
-                style: AppTextStyles.heading7SemiBold,
+                SizedBox(height: 27.h),
+                Text("Daftar Anak", style: AppTextStyles.heading7SemiBold),
+                SizedBox(height: 10.h),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Expanded(
+                      child: Container(
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(50.r),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withOpacity(0.25),
+                              spreadRadius: 0,
+                              blurRadius: 5,
+                              offset: const Offset(0, 1),
+                            ),
+                          ],
+                        ),
+                        child: TextField(
+                          decoration: InputDecoration(
+                            isDense: true,
+                            border: InputBorder.none,
+                            enabledBorder: InputBorder.none,
+                            focusedBorder: InputBorder.none,
+                            hintText: "Cari data anak",
+                            hintStyle: AppTextStyles.caption1Semibold.copyWith(
+                              color: Colors.black.withOpacity(0.2),
+                            ),
+                            contentPadding: EdgeInsets.symmetric(
+                              horizontal: 14.w,
+                              vertical: 8.h,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 10.w,
+                    ),
+                    CustomAddButton(
+                      onPressed: () => {},
+                      padding: EdgeInsets.all(4.sp),
+                    ),
+                  ],
                 ),
                 SizedBox(height: 5.h),
-               
               ],
             ),
           ),
