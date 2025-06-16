@@ -104,6 +104,8 @@ class DetailProfileOrangTuaView
               CustomButtonProfile(label: "Tambah Data Anak", onPressed: ()=> Get.toNamed(Routes.ADD_DATA_ANAK),),
               SizedBox(height: 14.h),
               CustomButtonProfile(label: "Perbarui", onPressed: (){},),
+              SizedBox(height: 14.h),
+              CustomButtonProfile(label: "Keluar dari Akun", onPressed: ()=> Get.offAllNamed(Routes.LOGIN),),
               SizedBox(height: 45.h),
             ],
           ),

@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 import 'package:get/get.dart';
+import 'package:tumbuh_kita/app/core/helpers/role_storage_helper.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
@@ -69,6 +70,7 @@ class LoginView extends GetView<LoginController> {
                     color: const Color(0xFFF8F8F8),
                     borderRadius: BorderRadius.circular(8),
                   ),
+                  // pemilihan role
                   child: Obx(
                     () => Row(
                       children: [
@@ -109,7 +111,12 @@ class LoginView extends GetView<LoginController> {
                   hintText: "Masukkan kata sandi",
                 ),
                 SizedBox(height: 15.sp),
-                CustomButtonAuth(text: "Masuk", onPressed: () {
+                CustomButtonAuth(text: "Masuk", onPressed: () async {
+                  if (controller.selectedRole.value.isEmpty) {
+                    Get.snackbar('Pilih Peran', 'Silakan pilih peran terlebih dahulu');
+                    return;
+                  }
+                  await RoleStorageHelper.saveRole(controller.selectedRole.value);
                   Get.offAllNamed(Routes.TRANSITION);
                 }),
                 SizedBox(

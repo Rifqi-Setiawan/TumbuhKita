@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:tumbuh_kita/app/core/helpers/role_storage_helper.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
 
 class NavigationController extends GetxController {
   static const int NAVIGATOR_KEY_HOME = 1;
 
   var selectedIndex = 0.obs;
-
-  // Data item navbar, label disesuaikan dengan desain
   final RxList<Map<String, dynamic>> navigationItemsData = [
     {
       'label': 'Beranda',
@@ -42,6 +41,8 @@ class NavigationController extends GetxController {
     Routes.FORUM,
   ];
 
+  String initialRoute = Routes.HOME;
+
   void changePage(int index) {
     if (selectedIndex.value == index) return;
     selectedIndex.value = index;
@@ -49,17 +50,20 @@ class NavigationController extends GetxController {
   }
 
   @override
-  void onInit() {
+  void onInit() async {
     super.onInit();
+    final role = RoleStorageHelper.getRole();
+    print(role);
+    if (role == 'Orang Tua') {
+      initialRoute = Routes.HOME;
+    } else if (role == 'Posyandu') {
+      initialRoute = Routes.HOME_POSYANDU;
+    } else if (role == 'Kesehatan') {
+      initialRoute = Routes.HOME_TENAGA_KESEHATAN;
+    } else {
+      initialRoute = Routes.HOME;
+    }
   }
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
 
-  @override
-  void onClose() {
-    super.onClose();
-  }
 }

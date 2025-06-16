@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/get_core.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
-
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
+import 'dart:math' as math;
 
+// Kelas GridItemInfo tetap sama
 class GridItemInfo {
   final String title;
   final String value;
@@ -33,22 +33,36 @@ class GridItemInfo {
 }
 
 class CustomBabyStatusCard extends StatelessWidget {
-  final String babyName;
-  final String babyAge;
-  final String babyProfileImagePath;
-  final String stepFootImagePath;
+  final String role;
   final List<GridItemInfo> gridItemsData;
+  final String? babyName;
+  final String? babyAge;
+  final String? babyProfileImagePath;
+  final String? stepFootImagePath;
+  
+  // Tambahkan callback opsional untuk header
+  final VoidCallback? onHeaderTap;
 
   const CustomBabyStatusCard({
     super.key,
-    required this.babyName,
-    required this.babyAge,
-    required this.babyProfileImagePath,
-    required this.stepFootImagePath,
+    required this.role,
     required this.gridItemsData,
-  });
+    this.babyName,
+    this.babyAge,
+    this.babyProfileImagePath,
+    this.stepFootImagePath,
+    this.onHeaderTap, // Inisialisasi callback
+  }) : assert(
+            role == 'posyandu' ||
+                (babyName != null &&
+                    babyAge != null &&
+                    babyProfileImagePath != null &&
+                    stepFootImagePath != null),
+            'Info bayi (nama, umur, path gambar) harus disediakan untuk role selain "posyandu".');
 
+  // Widget _buildGridItem tidak ada perubahan
   Widget _buildGridItem({required GridItemInfo itemInfo}) {
+    // ... (kode _buildGridItem tidak ada perubahan)
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
       decoration: BoxDecoration(
@@ -82,7 +96,7 @@ class CustomBabyStatusCard extends StatelessWidget {
               Flexible(
                 child: Text(
                   itemInfo.value,
-                  style: itemInfo.title == "Status"
+                  style: itemInfo.title == "Status" || itemInfo.title == "Kategori"
                       ? AppTextStyles.heading8SemiBold
                       : AppTextStyles.heading4SemiBold,
                   textAlign: TextAlign.center,
@@ -118,100 +132,156 @@ class CustomBabyStatusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
-      clipBehavior: Clip.none,
-      children: [
-        Container(
-          decoration: BoxDecoration(
-            color: Colors.white,
-            borderRadius: BorderRadius.circular(25.r),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withOpacity(0.1),
-                spreadRadius: 1,
-                blurRadius: 5,
-                offset: const Offset(1, 2),
+    if (role == 'posyandu') {
+      return Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(25.r),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.black.withOpacity(0.08),
+              spreadRadius: 1,
+              blurRadius: 10,
+              offset: const Offset(1, 2),
+            ),
+          ],
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 22.w, vertical: 20.h),
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              GestureDetector(
+                onTap: onHeaderTap, 
+                behavior: HitTestBehavior.opaque, 
+                child: Row(
+                  children: [
+                    Text(
+                      "Statistik Anak Keseluruhan",
+                      style: AppTextStyles.body1Bold, 
+                    ),
+                    const Spacer(), 
+                    Icon(
+                      Icons.chevron_right,
+                      size: 30.sp,
+                      color: Colors.black87,
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 15.h),
+              GridView.count(
+                shrinkWrap: true,
+                physics: const NeverScrollableScrollPhysics(),
+                padding: EdgeInsets.zero,
+                crossAxisCount: 2,
+                crossAxisSpacing: 10.0.w,
+                mainAxisSpacing: 10.0.h,
+                childAspectRatio: 1.35, 
+                children: gridItemsData.map((itemInfo) {
+                  return _buildGridItem(itemInfo: itemInfo);
+                }).toList(),
               ),
             ],
           ),
-          child: Padding(
-            padding: EdgeInsets.only(
-              right: 22.w,
-              left: 22.w,
-              top: 20.h,
-              bottom: 15.h,
-            ),
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                GestureDetector(
-                  onTap: (){
-                    Get.toNamed(Routes.DETAIL_BABY);
-                  },
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: [
-                      ClipRRect(
-                        borderRadius: BorderRadius.circular(100.r),
-                        child: SizedBox(
-                          height: 45.h,
-                          width: 45.w,
-                          child: Image.asset(
-                            babyProfileImagePath,
-                            fit: BoxFit.cover,
-                          ),
-                        ),
-                      ),
-                      SizedBox(width: 9.w),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            babyName,
-                            style: AppTextStyles.body2Bold,
-                          ),
-                          SizedBox(height: 3.h),
-                          Text(
-                            babyAge,
-                            style: AppTextStyles.body3Regular,
-                          ),
-                        ],
-                      ),
-                      const Spacer(),
-                      Icon(Icons.chevron_right, size: 45.sp),
-                    ],
-                  ),
-                ),
-                SizedBox(height: 10.h),
-                GridView.count(
-                  shrinkWrap: true,
-                  physics: const NeverScrollableScrollPhysics(),
-                  padding: EdgeInsets.zero,
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10.0.w,
-                  mainAxisSpacing: 10.0.h,
-                  childAspectRatio: 1.2,
-                  children: gridItemsData.map((itemInfo) {
-                    return _buildGridItem(itemInfo: itemInfo);
-                  }).toList(),
+        ),
+      );
+    } else {
+      return Stack(
+        clipBehavior: Clip.none,
+        children: [
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white,
+              borderRadius: BorderRadius.circular(25.r),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.1),
+                  spreadRadius: 1,
+                  blurRadius: 5,
+                  offset: const Offset(1, 2),
                 ),
               ],
             ),
-          ),
-        ),
-        Positioned(
-          top: -24.h,
-          right: 14.w,
-          child: SizedBox(
-            height: 55.h,
-            width: 55.w,
-            child: Image.asset(
-              stepFootImagePath,
-              fit: BoxFit.contain,
+            child: Padding(
+              padding: EdgeInsets.only(
+                right: 22.w,
+                left: 22.w,
+                top: 20.h,
+                bottom: 15.h,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  GestureDetector(
+                    onTap: () {
+                      Get.toNamed(Routes.DETAIL_BABY);
+                    },
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        ClipRRect(
+                          borderRadius: BorderRadius.circular(100.r),
+                          child: SizedBox(
+                            height: 45.h,
+                            width: 45.w,
+                            child: Image.asset(
+                              babyProfileImagePath!,
+                              fit: BoxFit.cover,
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 9.w),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              babyName!,
+                              style: AppTextStyles.body2Bold,
+                            ),
+                            SizedBox(height: 3.h),
+                            Text(
+                              babyAge!,
+                              style: AppTextStyles.body3Regular,
+                            ),
+                          ],
+                        ),
+                        const Spacer(),
+                        Icon(Icons.chevron_right, size: 45.sp),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 10.h),
+                  GridView.count(
+                    shrinkWrap: true,
+                    physics: const NeverScrollableScrollPhysics(),
+                    padding: EdgeInsets.zero,
+                    crossAxisCount: 2,
+                    crossAxisSpacing: 10.0.w,
+                    mainAxisSpacing: 10.0.h,
+                    childAspectRatio: 1.2,
+                    children: gridItemsData.map((itemInfo) {
+                      return _buildGridItem(itemInfo: itemInfo);
+                    }).toList(),
+                  ),
+                ],
+              ),
             ),
           ),
-        ),
-      ],
-    );
+          Positioned(
+            top: -24.h,
+            right: 14.w,
+            child: SizedBox(
+              height: 55.h,
+              width: 55.w,
+              child: Image.asset(
+                stepFootImagePath!,
+                fit: BoxFit.contain,
+              ),
+            ),
+          ),
+        ],
+      );
+    }
   }
 }

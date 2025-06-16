@@ -17,7 +17,7 @@ class NavigationView extends GetView<NavigationController> {
       extendBody: true,
       body: Navigator(
         key: Get.nestedKey(1),
-        initialRoute: Routes.HOME,
+        initialRoute: controller.initialRoute, 
         onGenerateRoute: (routeSettings) {
           final page = AppPages.routes
               .firstWhere((route) => route.name == Routes.NAVIGATION)
@@ -27,7 +27,7 @@ class NavigationView extends GetView<NavigationController> {
                 orElse: () => AppPages.routes
                     .firstWhere((route) => route.name == Routes.NAVIGATION)
                     .children
-                    .firstWhere((page) => page.name == Routes.HOME),
+                    .firstWhere((page) => page.name == controller.initialRoute),
               );
           return GetPageRoute(
             settings: routeSettings,
@@ -37,7 +37,6 @@ class NavigationView extends GetView<NavigationController> {
           );
         },
       ),
-      // Ganti bottomNavigationBar dengan custom navbar
       bottomNavigationBar: CustomBottomNavbar(navController: controller),
     );
   }

@@ -16,6 +16,10 @@ import '../modules/forum/bindings/forum_binding.dart';
 import '../modules/forum/views/forum_view.dart';
 import '../modules/home_orangTua/bindings/home_binding.dart';
 import '../modules/home_orangTua/views/home_view.dart';
+import '../modules/home_posyandu/bindings/home_posyandu_binding.dart';
+import '../modules/home_posyandu/views/home_posyandu_view.dart';
+import '../modules/home_tenagaKesehatan/bindings/home_tenaga_kesehatan_binding.dart';
+import '../modules/home_tenagaKesehatan/views/home_tenaga_kesehatan_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/navigation/bindings/navigation_binding.dart';
@@ -60,6 +64,18 @@ class AppPages {
           name: _Paths.FORUM,
           page: () => const ForumView(),
           binding: ForumBinding(),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: _Paths.HOME_POSYANDU,
+          page: () => const HomePosyanduView(),
+          binding: HomePosyanduBinding(),
+          transition: Transition.noTransition,
+        ),
+        GetPage(
+          name: _Paths.HOME_TENAGA_KESEHATAN,
+          page: () => const HomeTenagaKesehatanView(),
+          binding: HomeTenagaKesehatanBinding(),
           transition: Transition.noTransition,
         ),
       ],
@@ -126,6 +142,16 @@ class AppPages {
       name: _Paths.ADD_PERTANYAAN_FORUM_ORANG_TUA,
       page: () => const AddPertanyaanForumOrangTuaView(),
       binding: AddPertanyaanForumOrangTuaBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOME_POSYANDU,
+      page: () => const HomePosyanduView(),
+      binding: HomePosyanduBinding(),
+    ),
+    GetPage(
+      name: _Paths.HOME_TENAGA_KESEHATAN,
+      page: () => const HomeTenagaKesehatanView(),
+      binding: HomeTenagaKesehatanBinding(),
     ),
   ];
 }

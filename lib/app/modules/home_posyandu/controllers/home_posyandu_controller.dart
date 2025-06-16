@@ -1,29 +1,30 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
 import 'dart:math' as math;
 
-class HomeController extends GetxController {
-
+class HomePosyanduController extends GetxController {
+  //TODO: Implement HomePosyanduController
   final List<GridItemInfo> dummyGridItems = [
       GridItemInfo(
-        title: "Tinggi Badan",
-        value: "50",
-        unit: "cm",
-        statusText: "Normal",
-        iconData: Icons.straighten,
+        title: "Jumlah Anak",
+        value: "400",
+        unit: "",
+        statusText: "Anak",
+        iconData: Icons.child_care_outlined,
         iconRotation: -math.pi / 2,
         iconColor: const Color(0xff563C81),
         backgroundColor: AppColors.primary10.withOpacity(0.2),
       ),
       GridItemInfo(
-        title: "Berat Badan",
-        value: "8.0",
-        unit: "kg",
+        title: "Status",
+        value: "Ideal",
+        unit: "",
         statusText: "Normal",
-        iconData: Icons.scale_outlined,
+        iconData: Icons.leaderboard_outlined,
+        statusValueIcon: Icons.sentiment_satisfied,
+        statusValueIconColor: const Color(0xff06D001),
         iconColor: const Color(0xff563C81),
         backgroundColor: AppColors.primary10.withOpacity(0.4),
       ),
@@ -38,21 +39,32 @@ class HomeController extends GetxController {
         backgroundColor: AppColors.primary10.withOpacity(0.6),
       ),
       GridItemInfo(
-        title: "Status",
+        title: "Kategori",
         value: "Meningkat",
         unit: "",
-        statusText: "",
-        iconData: Icons.leaderboard,
+        statusText: "", 
+        iconData: Icons.stacked_line_chart,
         iconColor: const Color(0xff563C81),
         statusValueIcon: Icons.moving_sharp,
         statusValueIconColor: const Color(0xff06D001),
         backgroundColor: AppColors.primary10.withOpacity(0.8),
       ),
     ];
-
+  final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
   }
 
+  @override
+  void onReady() {
+    super.onReady();
+  }
+
+  @override
+  void onClose() {
+    super.onClose();
+  }
+
+  void increment() => count.value++;
 }

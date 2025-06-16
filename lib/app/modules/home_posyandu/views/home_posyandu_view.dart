@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
-import '../controllers/home_controller.dart';
 
-class HomeView extends GetView<HomeController> {
-  const HomeView({super.key});
+import '../controllers/home_posyandu_controller.dart';
+
+class HomePosyanduView extends GetView<HomePosyanduController> {
+  const HomePosyanduView({super.key});
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,7 +48,7 @@ class HomeView extends GetView<HomeController> {
                       ),
                       SizedBox(width: 8.w),
                       Text(
-                        "Selamat pagi, \nRifqi",
+                        "Selamat pagi, \nPosyandu Bojonogsoang",
                         style: AppTextStyles.body3Semibold,
                       ),
                       const Spacer(),
@@ -56,11 +58,7 @@ class HomeView extends GetView<HomeController> {
                 ),
                 SizedBox(height: 17.h),
                 CustomBabyStatusCard(
-                  role: "Orang Tua",
-                  babyName: "Nadhira",
-                  babyAge: "8 Bulan",
-                  babyProfileImagePath: "assets/images/profileBayi.png",
-                  stepFootImagePath: "assets/images/stepfoot.png",
+                  role: 'posyandu',
                   gridItemsData: controller.dummyGridItems,
                 ),
                 SizedBox(height: 27.h),
