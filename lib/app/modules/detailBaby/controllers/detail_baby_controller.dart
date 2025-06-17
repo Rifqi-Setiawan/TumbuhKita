@@ -8,7 +8,7 @@ class DetailBabyController extends GetxController {
   TextEditingController tinggiBadanController = TextEditingController();
   TextEditingController beratbadanController = TextEditingController();
   TextEditingController lingkarKepalaController = TextEditingController();
-  String? role = "";
+  var role = ''.obs;
   final RxList<FlSpot> weightDataPoints = <FlSpot>[
     FlSpot(1, 14),
     FlSpot(2, 22), 
@@ -69,9 +69,9 @@ class DetailBabyController extends GetxController {
     super.onClose();
   }
 
-  void _setupNavigationForRole() async {
-    role = RoleStorageHelper.getRole();
-    print("Current Role: $role");
+  void _setupNavigationForRole() {
+    role.value = RoleStorageHelper.getRole() ?? '';
+    print("Current Role: ${role.value}");
   }
 
   void saveUpdateDataAnak(){
