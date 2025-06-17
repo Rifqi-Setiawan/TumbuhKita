@@ -5,10 +5,7 @@ import 'package:tumbuh_kita/app/routes/app_pages.dart';
 
 class NavigationController extends GetxController {
   static const int NAVIGATOR_KEY_HOME = 1;
-
   var selectedIndex = 0.obs;
-
-  // Jadikan list ini kosong pada awalnya, akan diisi berdasarkan role
   final RxList<Map<String, dynamic>> navigationItemsData = <Map<String, dynamic>>[].obs;
   final RxList<String> pageRoutes = <String>[].obs;
 

@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/widgets/buttons/custom_button_auth.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_detail_card.dart';
 import 'package:tumbuh_kita/app/widgets/category_chart_detailBaby.dart';
 import 'package:tumbuh_kita/app/widgets/components/detail_baby_chart_components.dart';
@@ -22,17 +23,18 @@ class DetailBabyView extends GetView<DetailBabyController> {
           icon: Icon(Icons.chevron_left, size: 40.sp),
         ),
       ),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          SizedBox(height: 10),
-          Text(
-            "Nadhira Salsabila Vanka",
-            style: AppTextStyles.body1Bold.copyWith(color: Color(0xff2C0B61)),
-          ),
-          SizedBox(height: 108.h),
-          Expanded(
-            child: Stack(
+      body: SingleChildScrollView(
+        scrollDirection: Axis.vertical,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            SizedBox(height: 10),
+            Text(
+              "Nadhira Salsabila Vanka",
+              style: AppTextStyles.body1Bold.copyWith(color: Color(0xff2C0B61)),
+            ),
+            SizedBox(height: 108.h),
+            Stack(
               clipBehavior: Clip.none,
               alignment: Alignment.topCenter,
               children: [
@@ -63,6 +65,7 @@ class DetailBabyView extends GetView<DetailBabyController> {
                       CategoryChartDetailbaby(),
                       SizedBox(height: 15.h),
                       Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           DetailBabyChartComponents(
                             spots: controller.weightDataPoints,
@@ -118,7 +121,9 @@ class DetailBabyView extends GetView<DetailBabyController> {
                                           vertical: 5.h,
                                         ),
                                         decoration: BoxDecoration(
-                                          borderRadius: BorderRadius.circular(15.r),
+                                          borderRadius: BorderRadius.circular(
+                                            15.r,
+                                          ),
                                           color: AppColors.error70,
                                         ),
                                         child: Center(
@@ -135,9 +140,7 @@ class DetailBabyView extends GetView<DetailBabyController> {
                               ],
                             ),
                           ),
-                          SizedBox(
-                            height: 10.h,
-                          ),
+                          SizedBox(height: 10.h),
                           Padding(
                             padding: const EdgeInsets.only(right: 16),
                             child: Row(
@@ -162,13 +165,78 @@ class DetailBabyView extends GetView<DetailBabyController> {
                                     borderRadius: BorderRadius.circular(50.sp),
                                   ),
                                   child: Center(
-                                    child: Text("Kurang Baik",
-                                     style: AppTextStyles.caption1Semibold,),
-                                  )
+                                    child: Text(
+                                      "Kurang Baik",
+                                      style: AppTextStyles.caption1Semibold,
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
                           ),
+                          SizedBox(height: 30.h),
+                    
+                          Text(
+                            "Anjuran Dokter",
+                            style: AppTextStyles.heading7Bold.copyWith(
+                              color: AppColors.secondary50,
+                            ),
+                          ),
+                          SizedBox(height: 10.h),
+                          Container(
+                            width:
+                                double
+                                    .infinity, 
+                                    height: 150.h,
+                            padding: EdgeInsets.symmetric(
+                              horizontal: 16.w,
+                              vertical: 16.h,
+                            ),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20.r),
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.black.withOpacity(0.1),
+                                  blurRadius: 5,
+                                  spreadRadius: 1,
+                                  offset: const Offset(1, 2),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Container(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 12.w,
+                                    vertical: 4.h,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: AppColors.error70, 
+                                    borderRadius: BorderRadius.circular(50.r),
+                                  ),
+                                  child: Text(
+                                    "Pendek",
+                                    style: AppTextStyles.caption2Regular.copyWith(
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ),
+                                SizedBox(height: 12.h),
+                                // Teks Anjuran
+                                Text(
+                                  "Sebaiknya diperbanyak makan tiang biar cepat tinggi",
+                                  style: AppTextStyles.body2Regular.copyWith(
+                                    color: Colors.black87,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          SizedBox(height: 30.h),
+                          CustomButtonAuth(text: "Perbarui Data Anak", onPressed: (){}),
+                          SizedBox(height: 40.h),
                         ],
                       ),
                     ],
@@ -184,8 +252,8 @@ class DetailBabyView extends GetView<DetailBabyController> {
                 ),
               ],
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

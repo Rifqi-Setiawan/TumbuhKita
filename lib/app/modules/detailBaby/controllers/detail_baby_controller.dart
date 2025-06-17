@@ -1,10 +1,11 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
-import 'package:tumbuh_kita/app/widgets/models/chart_data_point_model.dart';
 import 'dart:math' as math;
+
+import 'package:tumbuh_kita/app/core/helpers/role_storage_helper.dart';
 class DetailBabyController extends GetxController {
+  String? role = "";
   final RxList<FlSpot> weightDataPoints = <FlSpot>[
     FlSpot(1, 14),
     FlSpot(2, 22), 
@@ -41,17 +42,18 @@ class DetailBabyController extends GetxController {
     update();
   }
   double get maxYValue {
-    if (getSpotsForActiveChart().isEmpty) return 100; // Default jika tidak ada data
-    return getSpotsForActiveChart().map((spot) => spot.y).reduce(math.max) + 10; // Tambah buffer
+    if (getSpotsForActiveChart().isEmpty) return 100; 
+    return getSpotsForActiveChart().map((spot) => spot.y).reduce(math.max) + 10; 
   }
   double get maxXValue {
-     if (getSpotsForActiveChart().isEmpty) return 16; // Default jika tidak ada data
+     if (getSpotsForActiveChart().isEmpty) return 16;
     return getSpotsForActiveChart().map((spot) => spot.x).reduce(math.max);
   }
   final count = 0.obs;
   @override
   void onInit() {
     super.onInit();
+    _setupNavigationForRole();
   }
 
   @override
@@ -64,5 +66,8 @@ class DetailBabyController extends GetxController {
     super.onClose();
   }
 
-  void increment() => count.value++;
+  void _setupNavigationForRole() async {
+    role = RoleStorageHelper.getRole();
+    print("Current Role: $role");
+  }
 }
