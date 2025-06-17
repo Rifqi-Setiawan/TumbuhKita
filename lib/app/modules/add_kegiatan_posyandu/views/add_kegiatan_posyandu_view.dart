@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:table_calendar/table_calendar.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/widgets/buttons/custom_button_auth.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';
 
 import '../controllers/add_kegiatan_posyandu_controller.dart';
@@ -31,7 +32,7 @@ class AddKegiatanPosyanduView extends GetView<AddKegiatanPosyanduController> {
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 26.w),
           child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               SizedBox(height: 35.h,),
               CustomTextFieldAuth(
@@ -52,8 +53,11 @@ class AddKegiatanPosyanduView extends GetView<AddKegiatanPosyanduController> {
                 label: "Masukkan Informasi Khusus",
               ),
               SizedBox(height: 15.h,),
-              Text("Waktu Kegiatan"),
-              SizedBox(height: 8.h),
+              Text("Waktu Kegiatan",
+              style: AppTextStyles.body2Semibold.copyWith(
+                color: Colors.black
+              ),),
+              SizedBox(height: 10.h),
               Obx(() => Container(
                       padding: EdgeInsets.all(16.w),
                       decoration: BoxDecoration(
@@ -123,6 +127,8 @@ class AddKegiatanPosyanduView extends GetView<AddKegiatanPosyanduController> {
                         ),
                       ),
                     )),
+                    SizedBox(height: 15.h,),
+                    CustomButtonAuth(text: "Simpan", onPressed: (){})
             ],
           ),
         ),
