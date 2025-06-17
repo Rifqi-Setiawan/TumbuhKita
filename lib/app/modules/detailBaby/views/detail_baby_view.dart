@@ -8,6 +8,7 @@ import 'package:tumbuh_kita/app/widgets/cards/custom_baby_detail_card.dart';
 import 'package:tumbuh_kita/app/widgets/category_chart_detailBaby.dart';
 import 'package:tumbuh_kita/app/widgets/components/detail_baby_chart_components.dart';
 import 'package:tumbuh_kita/app/widgets/custom_profile_baby.dart';
+import 'package:tumbuh_kita/app/widgets/update_data_form_anak_posyandu.dart';
 import '../controllers/detail_baby_controller.dart';
 
 class DetailBabyView extends GetView<DetailBabyController> {
@@ -175,7 +176,7 @@ class DetailBabyView extends GetView<DetailBabyController> {
                             ),
                           ),
                           SizedBox(height: 30.h),
-                    
+
                           Text(
                             "Anjuran Dokter",
                             style: AppTextStyles.heading7Bold.copyWith(
@@ -184,10 +185,8 @@ class DetailBabyView extends GetView<DetailBabyController> {
                           ),
                           SizedBox(height: 10.h),
                           Container(
-                            width:
-                                double
-                                    .infinity, 
-                                    height: 150.h,
+                            width: double.infinity,
+                            height: 150.h,
                             padding: EdgeInsets.symmetric(
                               horizontal: 16.w,
                               vertical: 16.h,
@@ -213,14 +212,13 @@ class DetailBabyView extends GetView<DetailBabyController> {
                                     vertical: 4.h,
                                   ),
                                   decoration: BoxDecoration(
-                                    color: AppColors.error70, 
+                                    color: AppColors.error70,
                                     borderRadius: BorderRadius.circular(50.r),
                                   ),
                                   child: Text(
                                     "Pendek",
-                                    style: AppTextStyles.caption2Regular.copyWith(
-                                      color: Colors.white,
-                                    ),
+                                    style: AppTextStyles.caption2Regular
+                                        .copyWith(color: Colors.white),
                                   ),
                                 ),
                                 SizedBox(height: 12.h),
@@ -235,7 +233,22 @@ class DetailBabyView extends GetView<DetailBabyController> {
                             ),
                           ),
                           SizedBox(height: 30.h),
-                          CustomButtonAuth(text: "Perbarui Data Anak", onPressed: (){}),
+                          CustomButtonAuth(
+                            text: "Perbarui Data Anak",
+                            onPressed: () {
+                              Get.dialog(
+                                UpdateDataFormAnakPosyandu(
+                                  tinggiController:
+                                      controller.tinggiBadanController,
+                                  beratController:
+                                      controller.beratbadanController,
+                                  lingkarKepalaController:
+                                      controller.lingkarKepalaController,
+                                  onSave: controller.saveUpdateDataAnak,
+                                ),
+                              );
+                            },
+                          ),
                           SizedBox(height: 40.h),
                         ],
                       ),

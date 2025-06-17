@@ -5,6 +5,9 @@ import 'dart:math' as math;
 
 import 'package:tumbuh_kita/app/core/helpers/role_storage_helper.dart';
 class DetailBabyController extends GetxController {
+  TextEditingController tinggiBadanController = TextEditingController();
+  TextEditingController beratbadanController = TextEditingController();
+  TextEditingController lingkarKepalaController = TextEditingController();
   String? role = "";
   final RxList<FlSpot> weightDataPoints = <FlSpot>[
     FlSpot(1, 14),
@@ -69,5 +72,9 @@ class DetailBabyController extends GetxController {
   void _setupNavigationForRole() async {
     role = RoleStorageHelper.getRole();
     print("Current Role: $role");
+  }
+
+  void saveUpdateDataAnak(){
+    Get.back();
   }
 }
