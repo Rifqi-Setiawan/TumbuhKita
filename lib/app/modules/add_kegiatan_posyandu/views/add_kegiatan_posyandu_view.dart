@@ -34,105 +34,151 @@ class AddKegiatanPosyanduView extends GetView<AddKegiatanPosyanduController> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(height: 35.h,),
+              SizedBox(height: 35.h),
               CustomTextFieldAuth(
                 controller: controller.namaKegiatanController,
                 hintText: "Nama Kegiatan",
                 label: "Nama Kegiatan",
               ),
-              SizedBox(height: 15.h,),
+              SizedBox(height: 15.h),
               CustomTextFieldAuth(
                 controller: controller.detailKegiatanController,
                 hintText: "Detail Kegiatan",
                 label: "Masukkan Detail Kegiatan",
               ),
-              SizedBox(height: 15.h,),
+              SizedBox(height: 15.h),
               CustomTextFieldAuth(
                 controller: controller.informasiKegiatanController,
                 hintText: "Informasi Khusus",
                 label: "Masukkan Informasi Khusus",
               ),
-              SizedBox(height: 15.h,),
-              Text("Waktu Kegiatan",
-              style: AppTextStyles.body2Semibold.copyWith(
-                color: Colors.black
-              ),),
+              SizedBox(height: 15.h),
+              Text(
+                "Waktu Kegiatan",
+                style: AppTextStyles.body2Semibold.copyWith(
+                  color: Colors.black,
+                ),
+              ),
               SizedBox(height: 10.h),
-              Obx(() => Container(
-                      padding: EdgeInsets.all(16.w),
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.r),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withOpacity(0.05),
-                            blurRadius: 10,
-                            offset: const Offset(0, 4),
-                          )
-                        ],
+              Obx(
+                () => Container(
+                  padding: EdgeInsets.all(16.w),
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.circular(20.r),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.05),
+                        blurRadius: 10,
+                        offset: const Offset(0, 4),
                       ),
-                      child: TableCalendar(
-                        focusedDay: controller.focusedDay.value,
-                        firstDay: DateTime.utc(2020, 1, 1),
-                        lastDay: DateTime.utc(2030, 12, 31),
-                        locale: 'id_ID', 
-                        headerStyle: HeaderStyle(
-                          titleCentered: true,
-                          titleTextStyle: AppTextStyles.body1Bold,
-                          formatButtonVisible: false, 
-                          leftChevronIcon: Icon(Icons.chevron_left, color: Colors.grey.shade700),
-                          rightChevronIcon: Icon(Icons.chevron_right, color: Colors.grey.shade700),
-                        ),
-                        calendarFormat: CalendarFormat.month,
-                        daysOfWeekHeight: 20.h,
-                        selectedDayPredicate: (day) => isSameDay(controller.selectedDay.value, day),
-                        onDaySelected: controller.onDaySelected,
-                        onPageChanged: (focused) {
-                          controller.focusedDay.value = focused;
-                        },
-                        calendarBuilders: CalendarBuilders(
-                          // Kustomisasi tampilan hari yang terpilih
-                          selectedBuilder: (context, date, events) => Container(
-                            margin: EdgeInsets.all(4.0.r),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              color: AppColors.primary70,
-                              borderRadius: BorderRadius.circular(8.r),
-                            ),
-                            child: Text(
-                              date.day.toString(),
-                              style: AppTextStyles.body2Bold.copyWith(color: Colors.white),
-                            ),
-                          ),
-                          // Kustomisasi tampilan hari ini
-                          todayBuilder: (context, date, events) => Container(
-                            margin: EdgeInsets.all(4.0.r),
-                            alignment: Alignment.center,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(8.r),
-                              border: Border.all(color: AppColors.primary70, width: 1.5),
-                            ),
-                            child: Text(
-                              date.day.toString(),
-                              style: AppTextStyles.body2Regular.copyWith(color: AppColors.primary70),
-                            ),
-                          ),
-                          // Kustomisasi tampilan hari dari bulan lain (abu-abu)
-                          outsideBuilder: (context, date, events) => Center(
-                            child: Text(
-                              date.day.toString(),
-                              style: AppTextStyles.body2Regular.copyWith(color: Colors.grey.shade400),
-                            ),
-                          ),
-                        ),
+                    ],
+                  ),
+                  child: TableCalendar(
+                    focusedDay: controller.focusedDay.value,
+                    firstDay: DateTime.utc(2020, 1, 1),
+                    lastDay: DateTime.utc(2030, 12, 31),
+                    locale: 'id_ID',
+                    calendarFormat: CalendarFormat.month,
+                    daysOfWeekHeight: 28.h,
+                    headerStyle: HeaderStyle(
+                      titleCentered: true,
+                      titleTextStyle: AppTextStyles.body1Bold,
+                      formatButtonVisible: false,
+                      leftChevronIcon: Icon(
+                        Icons.chevron_left,
+                        color: Colors.grey.shade700,
                       ),
-                    )),
-                    SizedBox(height: 15.h,),
-                    CustomButtonAuth(text: "Simpan", onPressed: (){})
+                      rightChevronIcon: Icon(
+                        Icons.chevron_right,
+                        color: Colors.grey.shade700,
+                      ),
+                    ),
+                    daysOfWeekStyle: DaysOfWeekStyle(
+                      weekdayStyle: AppTextStyles.caption1Regular.copyWith(
+                        color: Colors.black87,
+                      ),
+                      weekendStyle: AppTextStyles.caption1Regular.copyWith(
+                        color: Colors.black87,
+                      ),
+                    ),
+                    selectedDayPredicate:
+                        (day) => isSameDay(controller.selectedDay.value, day),
+                    onDaySelected: controller.onDaySelected,
+                    onPageChanged: (focused) {
+                      controller.focusedDay.value = focused;
+                    },
+                    calendarBuilders: CalendarBuilders(
+                      defaultBuilder: (context, date, _) {
+                        return _buildCalendarCell(
+                          date: date,
+                          textStyle: AppTextStyles.caption2Regular.copyWith(
+                            color: Colors.black87,
+                          ),
+                        );
+                      },
+                      todayBuilder: (context, date, _) {
+                        return _buildCalendarCell(
+                          date: date,
+                          textStyle: AppTextStyles.caption2Regular.copyWith(
+                            color: AppColors.primary70,
+                          ),
+                          border: Border.all(
+                            color: AppColors.primary70,
+                            width: 1.5,
+                          ),
+                        );
+                      },
+                      selectedBuilder: (context, date, _) {
+                        return _buildCalendarCell(
+                          date: date,
+                          textStyle: AppTextStyles.caption2Regular.copyWith(
+                            color: Colors.white,
+                          ),
+                          background: AppColors.primary70,
+                          borderRadius: BorderRadius.circular(8.r),
+                        );
+                      },
+                      outsideBuilder: (context, date, _) {
+                        return _buildCalendarCell(
+                          date: date,
+                          textStyle: AppTextStyles.caption2Regular.copyWith(
+                            color: Colors.grey.shade400,
+                          ),
+                        );
+                      },
+                    ),
+                    rowHeight: 40.h, 
+                  ),
+                ),
+              ),
+              SizedBox(height: 15.h),
+              CustomButtonAuth(text: "Simpan", onPressed: () {}),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+Widget _buildCalendarCell({
+  required DateTime date,
+  required TextStyle textStyle,
+  Border? border,
+  Color? background,
+  BorderRadius? borderRadius,
+}) {
+  return Container(
+    // margin: EdgeInsets.all(2.0.r),
+    padding: EdgeInsets.all(10.0.r),
+    decoration: BoxDecoration(
+      color: background,
+      border: Border.all(
+        color: Color(0xffD5D4DF),
+        width: 0.5,
+      ),
+    ),
+    child: Center(child: Text(date.day.toString(), style: textStyle)),
+  );
 }

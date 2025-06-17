@@ -42,6 +42,4 @@ class AppColors {
   static const error50 = Color(0xFFFF6363);
   static const error70 = Color(0xFFCC4F4F);
   static const error90 = Color(0xFF993B3B);
-
-  static var neutral60;
 }
