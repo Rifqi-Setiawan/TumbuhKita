@@ -4,6 +4,8 @@ import '../modules/Imunisasi_orangTua/bindings/imunisasi_orangTua_binding.dart';
 import '../modules/Imunisasi_orangTua/views/imunisasi_orangTua_view.dart';
 import '../modules/addDataAnak/bindings/add_data_anak_binding.dart';
 import '../modules/addDataAnak/views/add_data_anak_view.dart';
+import '../modules/add_kegiatan_posyandu/bindings/add_kegiatan_posyandu_binding.dart';
+import '../modules/add_kegiatan_posyandu/views/add_kegiatan_posyandu_view.dart';
 import '../modules/add_pertanyaan_forum_orangTua/bindings/add_pertanyaan_forum_orang_tua_binding.dart';
 import '../modules/add_pertanyaan_forum_orangTua/views/add_pertanyaan_forum_orang_tua_view.dart';
 import '../modules/artikel/bindings/artikel_binding.dart';
@@ -159,6 +161,11 @@ class AppPages {
       name: _Paths.HOME_TENAGA_KESEHATAN,
       page: () => const HomeTenagaKesehatanView(),
       binding: HomeTenagaKesehatanBinding(),
+    ),
+    GetPage(
+      name: _Paths.ADD_KEGIATAN_POSYANDU,
+      page: () => const AddKegiatanPosyanduView(),
+      binding: AddKegiatanPosyanduBinding(),
     ),
   ];
 }

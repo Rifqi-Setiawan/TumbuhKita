@@ -18,6 +18,7 @@ abstract class Routes {
   static const HOME_POSYANDU = _Paths.HOME_POSYANDU;
   static const HOME_TENAGA_KESEHATAN = _Paths.HOME_TENAGA_KESEHATAN;
   static const STATISTIK_POSYANDU = _Paths.STATISTIK_POSYANDU;
+  static const ADD_KEGIATAN_POSYANDU = _Paths.ADD_KEGIATAN_POSYANDU;
 }
 
 abstract class _Paths {
@@ -38,4 +39,5 @@ abstract class _Paths {
   static const HOME_POSYANDU = '/home-posyandu';
   static const HOME_TENAGA_KESEHATAN = '/home-tenaga-kesehatan';
   static const STATISTIK_POSYANDU = '/statistik-posyandu';
+  static const ADD_KEGIATAN_POSYANDU = '/add-kegiatan-posyandu';
 }

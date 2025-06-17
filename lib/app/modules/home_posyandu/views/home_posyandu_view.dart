@@ -6,10 +6,8 @@ import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/buttons/custom_add_button.dart';
-import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_daftar_anak_card.dart';
-import 'package:tumbuh_kita/app/widgets/inputs/custom_text_field_auth.dart';
 
 import '../controllers/home_posyandu_controller.dart';
 
@@ -70,7 +68,9 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                   children: [
                     Text("Kegiatan", style: AppTextStyles.heading7SemiBold),
                     CustomAddButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                        Get.toNamed(Routes.ADD_KEGIATAN_POSYANDU),
+                      },
                       padding: EdgeInsets.all(4.sp),
                     ),
                   ],
@@ -183,7 +183,9 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                       width: 10.w,
                     ),
                     CustomAddButton(
-                      onPressed: () => {},
+                      onPressed: () => {
+                        Get.toNamed(Routes.ADD_KEGIATAN_POSYANDU),
+                      },
                       padding: EdgeInsets.all(4.sp),
                     ),
                   ],
