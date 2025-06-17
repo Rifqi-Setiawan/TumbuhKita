@@ -184,7 +184,7 @@ class HomePosyanduView extends GetView<HomePosyanduController> {
                     ),
                     CustomAddButton(
                       onPressed: () => {
-                        Get.toNamed(Routes.ADD_KEGIATAN_POSYANDU),
+                        Get.toNamed(Routes.ADD_DATA_ANAK),
                       },
                       padding: EdgeInsets.all(4.sp),
                     ),
