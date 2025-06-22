@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
+import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
+import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/widgets/cards/custom_statistik_forum_tenagaKesehatan.dart';
 
 import '../controllers/statistik_tenaga_kesehatan_controller.dart';
 
@@ -10,14 +14,32 @@ class StatistikTenagaKesehatanView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('StatistikTenagaKesehatanView'),
-        centerTitle: true,
-      ),
-      body: const Center(
-        child: Text(
-          'StatistikTenagaKesehatanView is working',
-          style: TextStyle(fontSize: 20),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          scrollDirection: Axis.vertical,
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 21.w),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 40.h),
+                Center(
+                  child: Text(
+                    "Statistik Forum",
+                    style: AppTextStyles.heading7SemiBold.copyWith(
+                      color: AppColors.secondary50,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 45.h),
+                CustomStatistikForumTenagaKesehatan(
+                  totalPertanyaan: 2,
+                  belumDijawab: 3,
+                  sudahDijawab: 2,
+                ),
+              ],
+            ),
+          ),
         ),
       ),
     );
