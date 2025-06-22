@@ -88,11 +88,11 @@ class LoginView extends GetView<LoginController> {
                           onTap: () => controller.selectRole('Posyandu'),
                         ),
                         CustomRoleAuth(
-                          role: 'Kesehatan',
+                          role: 'Tenaga Kesehatan',
                           icon: Icons.manage_accounts,
                           isSelected:
-                              controller.selectedRole.value == 'Kesehatan',
-                          onTap: () => controller.selectRole('Kesehatan'),
+                              controller.selectedRole.value == 'Tenaga Kesehatan',
+                          onTap: () => controller.selectRole('Tenaga Kesehatan'),
                         ),
                       ],
                     ),

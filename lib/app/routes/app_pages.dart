@@ -30,6 +30,8 @@ import '../modules/register/bindings/register_binding.dart';
 import '../modules/register/views/register_view.dart';
 import '../modules/statistik_posyandu/bindings/statistik_posyandu_binding.dart';
 import '../modules/statistik_posyandu/views/statistik_posyandu_view.dart';
+import '../modules/statistik_tenagaKesehatan/bindings/statistik_tenaga_kesehatan_binding.dart';
+import '../modules/statistik_tenagaKesehatan/views/statistik_tenaga_kesehatan_view.dart';
 import '../modules/transition_1/bindings/transition_binding.dart';
 import '../modules/transition_1/views/transition_view.dart';
 
@@ -166,6 +168,11 @@ class AppPages {
       name: _Paths.ADD_KEGIATAN_POSYANDU,
       page: () => const AddKegiatanPosyanduView(),
       binding: AddKegiatanPosyanduBinding(),
+    ),
+    GetPage(
+      name: _Paths.STATISTIK_TENAGA_KESEHATAN,
+      page: () => const StatistikTenagaKesehatanView(),
+      binding: StatistikTenagaKesehatanBinding(),
     ),
   ];
 }
