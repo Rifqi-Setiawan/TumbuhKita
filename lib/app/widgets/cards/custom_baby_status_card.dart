@@ -3,8 +3,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
-
-// Kelas GridItemInfo tetap sama
 class GridItemInfo {
   final String title;
   final String value;

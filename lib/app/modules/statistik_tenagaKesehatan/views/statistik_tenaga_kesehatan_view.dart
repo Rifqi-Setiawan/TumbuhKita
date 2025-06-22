@@ -34,6 +34,9 @@ class StatistikTenagaKesehatanView
                 ),
                 SizedBox(height: 45.h),
                 CustomStatistikForumTenagaKesehatan(
+                  title1: "Total Pertanyaan",
+                  title2: "Belum Dijawab",
+                  title3: "Sudah Dijawab",
                   totalPertanyaan: 2,
                   belumDijawab: 3,
                   sudahDijawab: 2,
@@ -47,6 +50,9 @@ class StatistikTenagaKesehatanView
                 ),
                 SizedBox(height: 10.h),
                 CustomStatistikForumTenagaKesehatan(
+                  title1: "Nutrisi & Makanan",
+                  title2: "Pertumbuhan & Perkembangan",
+                  title3: "Kesehatan & Penyakit",
                   totalPertanyaan: 2,
                   belumDijawab: 3,
                   sudahDijawab: 2,

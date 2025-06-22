@@ -120,6 +120,7 @@ class AppPages {
       name: _Paths.REGISTER,
       page: () => const RegisterView(),
       binding: RegisterBinding(),
+      transition: Transition.noTransition,
     ),
     GetPage(
       name: _Paths.ARTIKEL,

@@ -4,12 +4,18 @@ import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
 
 class CustomStatistikForumTenagaKesehatan extends StatelessWidget {
+  final String title1;
+  final String title2;
+  final String title3;
   final int totalPertanyaan;
   final int belumDijawab;
   final int sudahDijawab;
 
   const CustomStatistikForumTenagaKesehatan({
     super.key,
+    required this.title1,
+    required this.title2,
+    required this.title3,
     required this.totalPertanyaan,
     required this.belumDijawab,
     required this.sudahDijawab,
@@ -34,11 +40,11 @@ class CustomStatistikForumTenagaKesehatan extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _buildStatRow("Total Pertanyaan", totalPertanyaan, AppColors.neutral30, AppColors.neutral90),
+          _buildStatRow(title1, totalPertanyaan, AppColors.neutral30, AppColors.neutral90),
           SizedBox(height: 14.h),
-          _buildStatRow("Belum Dijawab", belumDijawab, const Color(0xffFFB1B1).withOpacity(0.5), AppColors.error70),
+          _buildStatRow(title2, belumDijawab, const Color(0xffFFB1B1).withOpacity(0.5), AppColors.error70),
           SizedBox(height: 14.h),
-          _buildStatRow("Sudah Dijawab", sudahDijawab, const Color(0xff38D934).withOpacity(0.35), AppColors.success70),
+          _buildStatRow(title3, sudahDijawab, const Color(0xff38D934).withOpacity(0.35), AppColors.success70),
         ],
       ),
     );

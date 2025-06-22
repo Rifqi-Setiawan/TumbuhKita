@@ -47,7 +47,7 @@ class CustomPertanyaanStatistikTenagaKesehatan extends StatelessWidget {
               GestureDetector(
                 onTap: onTap,
                 child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 6.h),
+                  padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 10.h),
                   decoration: BoxDecoration(
                     color: AppColors.warning50,
                     borderRadius: BorderRadius.circular(15.r),
