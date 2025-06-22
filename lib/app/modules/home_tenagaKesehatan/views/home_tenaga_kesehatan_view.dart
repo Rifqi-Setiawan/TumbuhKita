@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_baby_status_card.dart';
+import 'package:tumbuh_kita/app/widgets/cards/forum_question_card.dart';
 
 import '../controllers/home_tenaga_kesehatan_controller.dart';
 
@@ -56,10 +57,41 @@ class HomeTenagaKesehatanView extends GetView<HomeTenagaKesehatanController> {
                 ),
                 SizedBox(height: 17.h),
                 CustomBabyStatusCard(
-                  role: 'posyandu',
+                  role: 'tenaga kesehatan',
                   gridItemsData: controller.dummyGridItems,
                 ),
                 SizedBox(height: 27.h),
+                Text(
+                  "Pertanyaan Terbaru",
+                  style: AppTextStyles.heading7SemiBold.copyWith(
+                    color: Colors.black,
+                  ),
+                ),
+                SizedBox(height: 10.h),
+                ForumQuestionCard(
+                  question:
+                      "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
+                ),
+                ForumQuestionCard(
+                  question:
+                      "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
+                ),
+                ForumQuestionCard(
+                  question:
+                      "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
+                ),
+                ForumQuestionCard(
+                  question:
+                      "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
+                ),
+                ForumQuestionCard(
+                  question:
+                      "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
+                ),
+                ForumQuestionCard(
+                  question:
+                      "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
+                ),
               ],
             ),
           ),

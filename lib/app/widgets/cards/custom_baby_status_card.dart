@@ -50,12 +50,10 @@ class CustomBabyStatusCard extends StatelessWidget {
     this.stepFootImagePath,
     this.onHeaderTap, 
   }) : assert(
-            role == 'posyandu' ||
-                (babyName != null &&
-                    babyAge != null &&
-                    babyProfileImagePath != null &&
-                    stepFootImagePath != null),
-            'Info bayi (nama, umur, path gambar) harus disediakan untuk role selain "posyandu".');
+          role == 'posyandu' || role == 'tenaga kesehatan' ||
+          (babyName != null && babyAge != null && babyProfileImagePath != null && stepFootImagePath != null),
+          'Info bayi (nama, umur, path gambar) harus disediakan untuk role selain "posyandu" dan "tenaga kesehatan".'
+        );
   Widget _buildGridItem({required GridItemInfo itemInfo}) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 14.w, vertical: 14.h),
@@ -152,11 +150,11 @@ class CustomBabyStatusCard extends StatelessWidget {
                   children: [
                     Text(
                       role.toLowerCase() == 'tenaga kesehatan'
-                          ? "Statistik Anak Keseluruhan"
-                          : "Statistik Forum",
+                          ? "Statistik Forum"
+                          : "Statistik Anak Keseluruhan",
                       style: AppTextStyles.body1Bold,
                     ),
-                    if (role.toLowerCase() == 'tenaga kesehatan') ...[
+                    if (role.toLowerCase() != 'tenaga kesehatan') ...[
                       const Spacer(),
                       Icon(
                         Icons.chevron_right,
