@@ -63,7 +63,7 @@ class NavigationController extends GetxController {
         ];
         break;
 
-      case 'Kesehatan':
+      case 'Tenaga Kesehatan':
         initialRoute = Routes.HOME_TENAGA_KESEHATAN;
         newNavItems = [
           {
@@ -72,12 +72,25 @@ class NavigationController extends GetxController {
             'selectedIcon': Icons.medical_services,
             'route': Routes.HOME_TENAGA_KESEHATAN,
           },
-          // {
-          //   'label': 'Pasien', // Contoh item untuk Tenaga Kesehatan
-          //   'icon': Icons.sick_outlined,
-          //   'selectedIcon': Icons.sick,
-          //   'route': Routes.DAFTAR_PASIEN, // Ganti dengan route Anda
-          // },
+          {
+            'label': 'Statistik',
+            'icon': Icons.moving_outlined,
+            'selectedIcon': Icons.moving,
+            'route': Routes.STATISTIK_TENAGA_KESEHATAN,
+          },
+          {
+            'label': 'Forum',
+            'icon': Icons.forum_outlined,
+            'selectedIcon': Icons.forum,
+            'route': Routes.HOME_TENAGA_KESEHATAN,
+          },
+          {
+            'label': 'Beranda',
+            'icon': Icons.medical_services_outlined,
+            'selectedIcon': Icons.medical_services,
+            'route': Routes.HOME_TENAGA_KESEHATAN,
+          },
+         
         ];
         break;
 

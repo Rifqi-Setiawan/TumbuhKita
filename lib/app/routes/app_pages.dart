@@ -16,6 +16,8 @@ import '../modules/detailProfileOrangTua/bindings/detail_profile_orang_tua_bindi
 import '../modules/detailProfileOrangTua/views/detail_profile_orang_tua_view.dart';
 import '../modules/forum/bindings/forum_binding.dart';
 import '../modules/forum/views/forum_view.dart';
+import '../modules/forum_tenagaKesehatan/bindings/forum_tenaga_kesehatan_binding.dart';
+import '../modules/forum_tenagaKesehatan/views/forum_tenaga_kesehatan_view.dart';
 import '../modules/home_orangTua/bindings/home_binding.dart';
 import '../modules/home_orangTua/views/home_view.dart';
 import '../modules/home_posyandu/bindings/home_posyandu_binding.dart';
@@ -173,6 +175,11 @@ class AppPages {
       name: _Paths.STATISTIK_TENAGA_KESEHATAN,
       page: () => const StatistikTenagaKesehatanView(),
       binding: StatistikTenagaKesehatanBinding(),
+    ),
+    GetPage(
+      name: _Paths.FORUM_TENAGA_KESEHATAN,
+      page: () => const ForumTenagaKesehatanView(),
+      binding: ForumTenagaKesehatanBinding(),
     ),
   ];
 }
