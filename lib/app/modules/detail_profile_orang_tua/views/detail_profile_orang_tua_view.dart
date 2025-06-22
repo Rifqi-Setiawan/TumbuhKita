@@ -63,7 +63,7 @@ class DetailProfileOrangTuaView
                   label: "Anak 2",
                   photoPath: "assets/images/profileBayi.png",
                   onCameraTap: () {
-                    // Implement camera tap functionality here
+                    
                   },
                 ),
               ),

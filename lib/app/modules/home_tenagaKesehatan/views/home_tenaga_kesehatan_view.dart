@@ -30,7 +30,7 @@ class HomeTenagaKesehatanView extends GetView<HomeTenagaKesehatanController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: () => Get.toNamed(Routes.DETAIL_PROFILE_ORANG_TUA),
+                  onTap: () => Get.toNamed(Routes.DETAIL_PROFILE),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [

@@ -21,6 +21,7 @@ abstract class Routes {
   static const ADD_KEGIATAN_POSYANDU = _Paths.ADD_KEGIATAN_POSYANDU;
   static const STATISTIK_TENAGA_KESEHATAN = _Paths.STATISTIK_TENAGA_KESEHATAN;
   static const FORUM_TENAGA_KESEHATAN = _Paths.FORUM_TENAGA_KESEHATAN;
+  static const DETAIL_PROFILE = _Paths.DETAIL_PROFILE;
 }
 
 abstract class _Paths {
@@ -44,4 +45,5 @@ abstract class _Paths {
   static const ADD_KEGIATAN_POSYANDU = '/add-kegiatan-posyandu';
   static const STATISTIK_TENAGA_KESEHATAN = '/statistik-tenaga-kesehatan';
   static const FORUM_TENAGA_KESEHATAN = '/forum-tenaga-kesehatan';
+  static const DETAIL_PROFILE = '/detail-profile';
 }

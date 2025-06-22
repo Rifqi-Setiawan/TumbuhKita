@@ -2,18 +2,20 @@ import 'package:get/get.dart';
 
 import '../modules/Imunisasi_orangTua/bindings/imunisasi_orangTua_binding.dart';
 import '../modules/Imunisasi_orangTua/views/imunisasi_orangTua_view.dart';
-import '../modules/addDataAnak/bindings/add_data_anak_binding.dart';
-import '../modules/addDataAnak/views/add_data_anak_view.dart';
+import '../modules/add_data_anak/bindings/add_data_anak_binding.dart';
+import '../modules/add_data_anak/views/add_data_anak_view.dart';
 import '../modules/add_kegiatan_posyandu/bindings/add_kegiatan_posyandu_binding.dart';
 import '../modules/add_kegiatan_posyandu/views/add_kegiatan_posyandu_view.dart';
 import '../modules/add_pertanyaan_forum_orangTua/bindings/add_pertanyaan_forum_orang_tua_binding.dart';
 import '../modules/add_pertanyaan_forum_orangTua/views/add_pertanyaan_forum_orang_tua_view.dart';
 import '../modules/artikel/bindings/artikel_binding.dart';
 import '../modules/artikel/views/artikel_view.dart';
-import '../modules/detailBaby/bindings/detail_baby_binding.dart';
-import '../modules/detailBaby/views/detail_baby_view.dart';
-import '../modules/detailProfileOrangTua/bindings/detail_profile_orang_tua_binding.dart';
-import '../modules/detailProfileOrangTua/views/detail_profile_orang_tua_view.dart';
+import '../modules/detail_baby/bindings/detail_baby_binding.dart';
+import '../modules/detail_baby/views/detail_baby_view.dart';
+import '../modules/detail_profile/bindings/detail_profile_binding.dart';
+import '../modules/detail_profile/views/detail_profile_view.dart';
+import '../modules/detail_profile_orang_tua/bindings/detail_profile_orang_tua_binding.dart';
+import '../modules/detail_profile_orang_tua/views/detail_profile_orang_tua_view.dart';
 import '../modules/forum/bindings/forum_binding.dart';
 import '../modules/forum/views/forum_view.dart';
 import '../modules/forum_tenagaKesehatan/bindings/forum_tenaga_kesehatan_binding.dart';
@@ -184,6 +186,11 @@ class AppPages {
       name: _Paths.ADD_KEGIATAN_POSYANDU,
       page: () => const AddKegiatanPosyanduView(),
       binding: AddKegiatanPosyanduBinding(),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_PROFILE,
+      page: () => const DetailProfileView(),
+      binding: DetailProfileBinding(),
     ),
   ];
 }
