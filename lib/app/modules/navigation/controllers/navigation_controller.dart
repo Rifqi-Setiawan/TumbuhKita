@@ -68,8 +68,8 @@ class NavigationController extends GetxController {
         newNavItems = [
           {
             'label': 'Beranda',
-            'icon': Icons.medical_services_outlined,
-            'selectedIcon': Icons.medical_services,
+            'icon': Icons.home_outlined,
+            'selectedIcon': Icons.home,
             'route': Routes.HOME_TENAGA_KESEHATAN,
           },
           {
@@ -82,13 +82,13 @@ class NavigationController extends GetxController {
             'label': 'Forum',
             'icon': Icons.forum_outlined,
             'selectedIcon': Icons.forum,
-            'route': Routes.HOME_TENAGA_KESEHATAN,
+            'route': Routes.FORUM_TENAGA_KESEHATAN,
           },
           {
-            'label': 'Beranda',
-            'icon': Icons.medical_services_outlined,
-            'selectedIcon': Icons.medical_services,
-            'route': Routes.HOME_TENAGA_KESEHATAN,
+            'label': 'Artikel',
+            'icon': Icons.article_outlined,
+            'selectedIcon': Icons.article,
+            'route': Routes.ARTIKEL,
           },
          
         ];

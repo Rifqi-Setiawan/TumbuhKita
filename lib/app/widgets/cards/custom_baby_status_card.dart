@@ -126,7 +126,7 @@ class CustomBabyStatusCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    if (role == 'posyandu') {
+    if (role.toLowerCase() == 'posyandu' || role.toLowerCase() == 'tenaga kesehatan') {
       return Container(
         decoration: BoxDecoration(
           color: Colors.white,
@@ -146,20 +146,24 @@ class CustomBabyStatusCard extends StatelessWidget {
             mainAxisSize: MainAxisSize.min,
             children: [
               GestureDetector(
-                onTap: onHeaderTap, 
-                behavior: HitTestBehavior.opaque, 
+                onTap: onHeaderTap,
+                behavior: HitTestBehavior.opaque,
                 child: Row(
                   children: [
                     Text(
-                      "Statistik Anak Keseluruhan",
-                      style: AppTextStyles.body1Bold, 
+                      role.toLowerCase() == 'tenaga kesehatan'
+                          ? "Statistik Anak Keseluruhan"
+                          : "Statistik Forum",
+                      style: AppTextStyles.body1Bold,
                     ),
-                    const Spacer(), 
-                    Icon(
-                      Icons.chevron_right,
-                      size: 30.sp,
-                      color: Colors.black87,
-                    ),
+                    if (role.toLowerCase() == 'tenaga kesehatan') ...[
+                      const Spacer(),
+                      Icon(
+                        Icons.chevron_right,
+                        size: 30.sp,
+                        color: Colors.black87,
+                      ),
+                    ]
                   ],
                 ),
               ),
@@ -180,7 +184,7 @@ class CustomBabyStatusCard extends StatelessWidget {
           ),
         ),
       );
-    } else {
+    } else if (role.toLowerCase() == 'orang tua') {
       return Stack(
         clipBehavior: Clip.none,
         children: [
@@ -275,6 +279,10 @@ class CustomBabyStatusCard extends StatelessWidget {
             ),
           ),
         ],
+      );
+    } else {
+      return Center(
+        child: Text("Pilih role terlebih dahulu"),
       );
     }
   }

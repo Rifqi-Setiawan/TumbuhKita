@@ -91,6 +91,16 @@ class AppPages {
           page: () => const StatistikPosyanduView(),
           binding: StatistikPosyanduBinding(),
         ),
+        GetPage(
+          name: _Paths.STATISTIK_TENAGA_KESEHATAN,
+          page: () => const StatistikTenagaKesehatanView(),
+          binding: StatistikTenagaKesehatanBinding(),
+        ),
+        GetPage(
+          name: _Paths.FORUM_TENAGA_KESEHATAN,
+          page: () => const ForumTenagaKesehatanView(),
+          binding: ForumTenagaKesehatanBinding(),
+        ),
       ],
     ),
     GetPage(
@@ -170,16 +180,6 @@ class AppPages {
       name: _Paths.ADD_KEGIATAN_POSYANDU,
       page: () => const AddKegiatanPosyanduView(),
       binding: AddKegiatanPosyanduBinding(),
-    ),
-    GetPage(
-      name: _Paths.STATISTIK_TENAGA_KESEHATAN,
-      page: () => const StatistikTenagaKesehatanView(),
-      binding: StatistikTenagaKesehatanBinding(),
-    ),
-    GetPage(
-      name: _Paths.FORUM_TENAGA_KESEHATAN,
-      page: () => const ForumTenagaKesehatanView(),
-      binding: ForumTenagaKesehatanBinding(),
     ),
   ];
 }
