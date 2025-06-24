@@ -13,12 +13,12 @@ class CustomButtonProfile extends StatelessWidget {
     return Container(
         width: double.infinity,
       decoration: BoxDecoration(
-        color: AppColors.primary70,
+        color:  label == "Keluar dari Akun"? AppColors.error70:AppColors.primary70,
         borderRadius: BorderRadius.circular(14.r),
       ),
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: AppColors.primary70,
+          backgroundColor: label == "Keluar dari Akun"? AppColors.error70:AppColors.primary70,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(14.r),
           ),

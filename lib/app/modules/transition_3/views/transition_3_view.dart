@@ -3,16 +3,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
-import '../controllers/transition_controller.dart';
 
-class TransitionView extends GetView<TransitionController> {
-  const TransitionView({super.key});
+import '../controllers/transition_3_controller.dart';
+
+class Transition3View extends GetView<Transition3Controller> {
+  const Transition3View({super.key});
   @override
   Widget build(BuildContext context) {
     controller;
     return Scaffold(
       body: Stack(
-        fit: StackFit.expand, 
+        fit: StackFit.expand,
         children: [
           Positioned(
             top: 0,
@@ -21,30 +22,30 @@ class TransitionView extends GetView<TransitionController> {
               "assets/images/vektorUnguSplashScreen.png",
               errorBuilder: (context, error, stackTrace) {
                 print("Error loading vektorUnguSplashScreen.png: $error");
-                return const SizedBox.shrink(); 
+                return const SizedBox.shrink();
               },
             ),
           ),
           Center(
             child: Column(
-              mainAxisSize:
-                  MainAxisSize
-                      .min,
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Image.asset(
-                  "assets/images/ikonTransition1.png",
+                  "assets/images/ikonTransition3.png",
+                  width: 190.w,
+                  height: 230.h, 
+                  fit: BoxFit.contain, 
                   errorBuilder: (context, error, stackTrace) {
-                    print("Error loading ikonTransition1.png: $error");
                     return const Icon(
                       Icons.image_not_supported,
                       size: 50,
-                    ); 
+                    );
                   },
                 ),
-                SizedBox(height: 16.h), 
+                SizedBox(height: 16.h),
                 Text(
-                  "Temani setiap langkah kecil \ndan momen berharga \nsi Buah Hati",
-                  textAlign: TextAlign.center, 
+                  "Pantau tumbuh kembang si kecil \nlangsung dari genggaman",
+                  textAlign: TextAlign.center,
                   style: AppTextStyles.heading8SemiBold.copyWith(
                     color: const Color(0xff4820B2),
                   ),
@@ -59,7 +60,7 @@ class TransitionView extends GetView<TransitionController> {
               "assets/images/vektorBiruSplashScreen.png",
               errorBuilder: (context, error, stackTrace) {
                 print("Error loading vektorBiruSplashScreen.png: $error");
-                return const SizedBox.shrink(); 
+                return const SizedBox.shrink();
               },
             ),
           ),

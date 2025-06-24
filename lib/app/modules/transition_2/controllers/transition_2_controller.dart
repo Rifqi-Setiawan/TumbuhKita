@@ -3,20 +3,19 @@ import 'dart:async';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/routes/app_pages.dart';
 
-class TransitionController extends GetxController {
+class Transition2Controller extends GetxController {
   final RxBool _navigateToLoginCalled = false.obs;
+
+  
   @override
   void onInit() {
     super.onInit();
-    print("SplashScreenController: onInit");
     _navigateToLoginAfterDelay();
   }
 
   @override
   void onReady() {
     super.onReady();
-    print("SplashScreenController: onReady - Memulai timer navigasi.");
-
   }
 
   @override
@@ -35,9 +34,9 @@ class TransitionController extends GetxController {
 
     Timer(const Duration(seconds: 3), () {
       print(
-        "SplashScreenController: Timer selesai, navigasi ke ${Routes.TRANSITION_2}",
+        "SplashScreenController: Timer selesai, navigasi ke ${Routes.TRANSITION_3}",
       );
-      Get.offAllNamed(Routes.TRANSITION_2);
+      Get.offAllNamed(Routes.TRANSITION_3);
     });
   }
 }

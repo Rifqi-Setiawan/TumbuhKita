@@ -38,6 +38,10 @@ import '../modules/statistik_tenagaKesehatan/bindings/statistik_tenaga_kesehatan
 import '../modules/statistik_tenagaKesehatan/views/statistik_tenaga_kesehatan_view.dart';
 import '../modules/transition_1/bindings/transition_binding.dart';
 import '../modules/transition_1/views/transition_view.dart';
+import '../modules/transition_2/bindings/transition_2_binding.dart';
+import '../modules/transition_2/views/transition_2_view.dart';
+import '../modules/transition_3/bindings/transition_3_binding.dart';
+import '../modules/transition_3/views/transition_3_view.dart';
 
 part 'app_routes.dart';
 
@@ -191,6 +195,20 @@ class AppPages {
       name: _Paths.DETAIL_PROFILE,
       page: () => const DetailProfileView(),
       binding: DetailProfileBinding(),
+    ),
+    GetPage(
+      name: _Paths.TRANSITION_2,
+      page: () => const Transition2View(),
+      binding: Transition2Binding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 800),
+    ),
+    GetPage(
+      name: _Paths.TRANSITION_3,
+      page: () => const Transition3View(),
+      binding: Transition3Binding(),
+      transition: Transition.fadeIn,
+      transitionDuration: const Duration(milliseconds: 800),
     ),
   ];
 }

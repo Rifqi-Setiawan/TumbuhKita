@@ -40,7 +40,6 @@ class DetailProfileView extends GetView<DetailProfileController> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               SizedBox(height: 29),
-              Text("Posyandu", style: AppTextStyles.caption2Regular),
               Center(
                 child: ProfileAkunWidget(
                   label: "Orang tua",

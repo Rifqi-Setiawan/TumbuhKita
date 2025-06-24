@@ -22,6 +22,8 @@ abstract class Routes {
   static const STATISTIK_TENAGA_KESEHATAN = _Paths.STATISTIK_TENAGA_KESEHATAN;
   static const FORUM_TENAGA_KESEHATAN = _Paths.FORUM_TENAGA_KESEHATAN;
   static const DETAIL_PROFILE = _Paths.DETAIL_PROFILE;
+  static const TRANSITION_2 = _Paths.TRANSITION_2;
+  static const TRANSITION_3 = _Paths.TRANSITION_3;
 }
 
 abstract class _Paths {
@@ -46,4 +48,6 @@ abstract class _Paths {
   static const STATISTIK_TENAGA_KESEHATAN = '/statistik-tenaga-kesehatan';
   static const FORUM_TENAGA_KESEHATAN = '/forum-tenaga-kesehatan';
   static const DETAIL_PROFILE = '/detail-profile';
+  static const TRANSITION_2 = '/transition-2';
+  static const TRANSITION_3 = '/transition-3';
 }

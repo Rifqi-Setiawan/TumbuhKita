@@ -3,10 +3,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
-import '../controllers/transition_controller.dart';
 
-class TransitionView extends GetView<TransitionController> {
-  const TransitionView({super.key});
+import '../controllers/transition_2_controller.dart';
+
+class Transition2View extends GetView<Transition2Controller> {
+  const Transition2View({super.key});
   @override
   Widget build(BuildContext context) {
     controller;
@@ -32,9 +33,12 @@ class TransitionView extends GetView<TransitionController> {
                       .min,
               children: [
                 Image.asset(
-                  "assets/images/ikonTransition1.png",
+                  "assets/images/ikonTransition2.png",
+                  width: 190.w,
+                  height: 230.h, 
+                  fit: BoxFit.contain, 
                   errorBuilder: (context, error, stackTrace) {
-                    print("Error loading ikonTransition1.png: $error");
+                    print("Error loading ikonTransition2.png: $error");
                     return const Icon(
                       Icons.image_not_supported,
                       size: 50,
@@ -43,7 +47,7 @@ class TransitionView extends GetView<TransitionController> {
                 ),
                 SizedBox(height: 16.h), 
                 Text(
-                  "Temani setiap langkah kecil \ndan momen berharga \nsi Buah Hati",
+                  "Hadiri setiap fase tumbuh \nkembang si kecil dengan \nkasih tanpa batas",
                   textAlign: TextAlign.center, 
                   style: AppTextStyles.heading8SemiBold.copyWith(
                     color: const Color(0xff4820B2),
