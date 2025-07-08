@@ -10,6 +10,8 @@ import '../modules/add_pertanyaan_forum_orangTua/bindings/add_pertanyaan_forum_o
 import '../modules/add_pertanyaan_forum_orangTua/views/add_pertanyaan_forum_orang_tua_view.dart';
 import '../modules/artikel/bindings/artikel_binding.dart';
 import '../modules/artikel/views/artikel_view.dart';
+import '../modules/detail_artikel/bindings/detail_artikel_binding.dart';
+import '../modules/detail_artikel/views/detail_artikel_view.dart';
 import '../modules/detail_baby/bindings/detail_baby_binding.dart';
 import '../modules/detail_baby/views/detail_baby_view.dart';
 import '../modules/detail_profile/bindings/detail_profile_binding.dart';
@@ -209,6 +211,11 @@ class AppPages {
       binding: Transition3Binding(),
       transition: Transition.fadeIn,
       transitionDuration: const Duration(milliseconds: 800),
+    ),
+    GetPage(
+      name: _Paths.DETAIL_ARTIKEL,
+      page: () => const DetailArtikelView(),
+      binding: DetailArtikelBinding(),
     ),
   ];
 }
