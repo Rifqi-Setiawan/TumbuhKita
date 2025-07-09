@@ -4,6 +4,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
 import 'package:tumbuh_kita/app/core/theme/colors.dart';
+import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_statistik_forum_tenagaKesehatan.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_pertanyaan_statistik_tenagaKesehatan.dart';
 
@@ -15,6 +16,7 @@ class StatistikTenagaKesehatanView
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xffF4F0FF),
       body: SafeArea(
         child: SingleChildScrollView(
           scrollDirection: Axis.vertical,
@@ -68,7 +70,8 @@ class StatistikTenagaKesehatanView
                 CustomPertanyaanStatistikTenagaKesehatan(
                   pertanyaan: "Anak saya sering menolak makan sayur, apa yang harus saya lakukan?",
                   onTap: () {
-                    print("Jawab pertanyaan");
+                    print("Navigating to: ${Routes.JAWAB_PERTANYAAN_TENAGA_KESEHATAN}");
+                    Get.toNamed(Routes.JAWAB_PERTANYAAN_TENAGA_KESEHATAN);
                   },
                 ),
                 CustomPertanyaanStatistikTenagaKesehatan(
