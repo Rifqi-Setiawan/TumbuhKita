@@ -25,6 +25,8 @@ abstract class Routes {
   static const TRANSITION_2 = _Paths.TRANSITION_2;
   static const TRANSITION_3 = _Paths.TRANSITION_3;
   static const DETAIL_ARTIKEL = _Paths.DETAIL_ARTIKEL;
+  static const JAWAB_PERTANYAAN_TENAGA_KESEHATAN =
+      _Paths.JAWAB_PERTANYAAN_TENAGA_KESEHATAN;
 }
 
 abstract class _Paths {
@@ -52,4 +54,6 @@ abstract class _Paths {
   static const TRANSITION_2 = '/transition-2';
   static const TRANSITION_3 = '/transition-3';
   static const DETAIL_ARTIKEL = '/detail-artikel';
+  static const JAWAB_PERTANYAAN_TENAGA_KESEHATAN =
+      '/jawab-pertanyaan-tenaga-kesehatan';
 }

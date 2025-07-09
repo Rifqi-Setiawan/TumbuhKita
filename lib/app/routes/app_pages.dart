@@ -28,6 +28,8 @@ import '../modules/home_posyandu/bindings/home_posyandu_binding.dart';
 import '../modules/home_posyandu/views/home_posyandu_view.dart';
 import '../modules/home_tenagaKesehatan/bindings/home_tenaga_kesehatan_binding.dart';
 import '../modules/home_tenagaKesehatan/views/home_tenaga_kesehatan_view.dart';
+import '../modules/jawab_pertanyaan_tenagaKesehatan/bindings/jawab_pertanyaan_tenaga_kesehatan_binding.dart';
+import '../modules/jawab_pertanyaan_tenagaKesehatan/views/jawab_pertanyaan_tenaga_kesehatan_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/navigation/bindings/navigation_binding.dart';
@@ -216,6 +218,11 @@ class AppPages {
       name: _Paths.DETAIL_ARTIKEL,
       page: () => const DetailArtikelView(),
       binding: DetailArtikelBinding(),
+    ),
+    GetPage(
+      name: _Paths.JAWAB_PERTANYAAN_TENAGA_KESEHATAN,
+      page: () => const JawabPertanyaanTenagaKesehatanView(),
+      binding: JawabPertanyaanTenagaKesehatanBinding(),
     ),
   ];
 }
