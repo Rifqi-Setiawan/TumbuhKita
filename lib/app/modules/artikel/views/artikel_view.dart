@@ -3,6 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'package:get/get.dart';
 import 'package:tumbuh_kita/app/core/theme/app_text_styles.dart';
+import 'package:tumbuh_kita/app/routes/app_pages.dart';
 import 'package:tumbuh_kita/app/widgets/cards/custom_artikel_card.dart';
 import 'package:tumbuh_kita/app/widgets/inputs/custom_search_bar.dart';
 
@@ -40,7 +41,9 @@ class ArtikelView extends GetView<ArtikelController> {
                   hintText: "Cari Artikel",
                 ),
                 SizedBox(height: 14.h,),
-                CustomArtikelCard(),
+                GestureDetector(
+                  onTap: () => Get.toNamed(Routes.DETAIL_ARTIKEL),
+                  child: CustomArtikelCard()),
                 SizedBox(height: 10.h,),
                 CustomArtikelCard(),
               ],
