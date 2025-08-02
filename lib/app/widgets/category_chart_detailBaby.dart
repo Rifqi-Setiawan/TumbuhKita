@@ -15,7 +15,6 @@ class CategoryChartDetailbaby extends StatelessWidget {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 6.sp, vertical: 8.sp),
       decoration: BoxDecoration(
-        color: Color(0xffF8F8F8),
         borderRadius: BorderRadius.circular(10.sp),
       ),
       child: Obx(() => Row(
@@ -61,17 +60,25 @@ class CategoryChartDetailbaby extends StatelessWidget {
         child: Container(
           padding: EdgeInsets.symmetric(horizontal: 5.sp, vertical: 10.sp),
           decoration: BoxDecoration(
-            color: isActive ? AppColors.secondary50 : Colors.white,
+            color: isActive ? Colors.white : Colors.transparent,
             borderRadius: BorderRadius.circular(8.sp),
             border: isActive 
-              ? Border.all(color: AppColors.secondary50, width: 1)
+              ? Border.all(color: Colors.white, width: 1)
               : Border.all(color: Colors.transparent, width: 1),
+            boxShadow: isActive ? [
+              BoxShadow(
+                color: Color(0x0F000000), // #0000000F
+                offset: Offset(0, 4),
+                blurRadius: 13.5,
+                spreadRadius: 0,
+              ),
+            ] : null,
           ),
           child: Center(
             child: Text(
               text,
               style: AppTextStyles.caption2Regular.copyWith(
-                color: isActive ? Colors.white : AppColors.secondary30,
+                color: isActive ? AppColors.secondary30 : AppColors.neutral70,
                 fontWeight: isActive ? FontWeight.w600 : FontWeight.normal,
               ),
               textAlign: TextAlign.center,
