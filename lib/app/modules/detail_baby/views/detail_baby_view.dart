@@ -65,15 +65,15 @@ class DetailBabyView extends GetView<DetailBabyController> {
                       SizedBox(height: 5.h),
                       CategoryChartDetailbaby(),
                       SizedBox(height: 15.h),
-                      Column(
+                      Obx(() => Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           DetailBabyChartComponents(
-                            spots: controller.weightDataPoints,
+                            spots: controller.getSpotsForActiveChart(),
                             minX: 1,
                             maxX: 16,
                             minY: 0,
-                            maxY: 100,
+                            maxY: controller.maxYValue,
                           ),
                           SizedBox(height: 10.h),
                           Row(
@@ -81,7 +81,7 @@ class DetailBabyView extends GetView<DetailBabyController> {
                             children: [
                               Image.asset("assets/images/IkonChart.png"),
                               Text(
-                                "Tinggi Badan",
+                                controller.getCurrentCategoryTitle(),
                                 style: AppTextStyles.caption1Regular.copyWith(
                                   color: Colors.black.withOpacity(0.7),
                                 ),
@@ -178,97 +178,91 @@ class DetailBabyView extends GetView<DetailBabyController> {
                           SizedBox(height: 30.h),
 
                           // Khusus role posyandu start
-                          Obx(() {
-                            if (controller.role.value == 'Posyandu') {
-                              return Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  SizedBox(height: 30.h),
-                                  Text(
-                                    "Anjuran Dokter",
-                                    style: AppTextStyles.heading7Bold.copyWith(
-                                      color: AppColors.secondary50,
-                                    ),
+                          if (controller.role.value == 'Posyandu')
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                SizedBox(height: 30.h),
+                                Text(
+                                  "Anjuran Dokter",
+                                  style: AppTextStyles.heading7Bold.copyWith(
+                                    color: AppColors.secondary50,
                                   ),
-                                  SizedBox(height: 10.h),
-                                  Container(
-                                    width: double.infinity,
-                                    height: 150.h,
-                                    padding: EdgeInsets.symmetric(
-                                      horizontal: 16.w,
-                                      vertical: 16.h,
-                                    ),
-                                    decoration: BoxDecoration(
-                                      color: Colors.white,
-                                      borderRadius: BorderRadius.circular(20.r),
-                                      boxShadow: [
-                                        BoxShadow(
-                                          color: Colors.black.withOpacity(0.1),
-                                          blurRadius: 5,
-                                          spreadRadius: 1,
-                                          offset: const Offset(1, 2),
+                                ),
+                                SizedBox(height: 10.h),
+                                Container(
+                                  width: double.infinity,
+                                  height: 150.h,
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal: 16.w,
+                                    vertical: 16.h,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(20.r),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Colors.black.withOpacity(0.1),
+                                        blurRadius: 5,
+                                        spreadRadius: 1,
+                                        offset: const Offset(1, 2),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Container(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal: 12.w,
+                                          vertical: 4.h,
                                         ),
-                                      ],
-                                    ),
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Container(
-                                          padding: EdgeInsets.symmetric(
-                                            horizontal: 12.w,
-                                            vertical: 4.h,
-                                          ),
-                                          decoration: BoxDecoration(
-                                            color: AppColors.error70,
-                                            borderRadius: BorderRadius.circular(
-                                              50.r,
-                                            ),
-                                          ),
-                                          child: Text(
-                                            "Pendek",
-                                            style: AppTextStyles.caption2Regular
-                                                .copyWith(color: Colors.white),
+                                        decoration: BoxDecoration(
+                                          color: AppColors.error70,
+                                          borderRadius: BorderRadius.circular(
+                                            50.r,
                                           ),
                                         ),
-                                        SizedBox(height: 12.h),
-                                        Text(
-                                          "Sebaiknya diperbanyak makan tiang biar cepat tinggi",
-                                          style: AppTextStyles.body2Regular
-                                              .copyWith(color: Colors.black87),
+                                        child: Text(
+                                          "Pendek",
+                                          style: AppTextStyles.caption2Regular
+                                              .copyWith(color: Colors.white),
                                         ),
-                                      ],
-                                    ),
+                                      ),
+                                      SizedBox(height: 12.h),
+                                      Text(
+                                        "Sebaiknya diperbanyak makan tiang biar cepat tinggi",
+                                        style: AppTextStyles.body2Regular
+                                            .copyWith(color: Colors.black87),
+                                      ),
+                                    ],
                                   ),
-
-                                  SizedBox(height: 30.h),
-                                  CustomButtonAuth(
-                                    text: "Perbarui Data Anak",
-                                    onPressed: () {
-                                      Get.dialog(
-                                        UpdateDataFormAnakPosyandu(
-                                          tinggiController:
-                                              controller.tinggiBadanController,
-                                          beratController:
-                                              controller.beratbadanController,
-                                          lingkarKepalaController:
-                                              controller
-                                                  .lingkarKepalaController,
-                                          onSave: controller.saveUpdateDataAnak,
-                                        ),
-                                      );
-                                    },
-                                  ),
-                                ],
-                              );
-                            } else {
-                              return const SizedBox.shrink();
-                            }
-                          }),
+                                ),
+                                SizedBox(height: 30.h),
+                                CustomButtonAuth(
+                                  text: "Perbarui Data Anak",
+                                  onPressed: () {
+                                    Get.dialog(
+                                      UpdateDataFormAnakPosyandu(
+                                        tinggiController:
+                                            controller.tinggiBadanController,
+                                        beratController:
+                                            controller.beratbadanController,
+                                        lingkarKepalaController:
+                                            controller
+                                                .lingkarKepalaController,
+                                        onSave: controller.saveUpdateDataAnak,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              ],
+                            ),
                           // Khusus role posyandu end
                           SizedBox(height: 40.h),
                         ],
-                      ),
+                      )),
                     ],
                   ),
                 ),
