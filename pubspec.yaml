@@ -43,6 +43,7 @@ dependencies:
   table_calendar: ^3.2.0
   intl: ^0.20.2
   month_picker_dialog: ^6.2.3
+  dio: ^5.9.0
 
 dev_dependencies:
   flutter_test:
